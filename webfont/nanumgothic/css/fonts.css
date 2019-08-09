@@ -1,0 +1,59 @@
+@charset "utf-8";
+
+/* ==========================================================================
+   #FONTS -- NANUM GOTHIC
+   ========================================================================== */
+@font-face {
+	font-family: 'Nanum Gothic';
+	font-style: normal;
+	font-weight: 400;
+	src: url(../fonts/NanumGothic-Regular.eot);
+	src: url(../fonts/NanumGothic-Regular.eot?#iefix) format('embedded-opentype'),
+	url(../fonts/NanumGothic-Regular.woff2) format('woff2'),
+	url(../fonts/NanumGothic-Regular.woff) format('woff');
+}
+@font-face {
+	font-family: 'Nanum Gothic';
+	font-style: normal;
+	font-weight: 700;
+	src: url(../fonts/NanumGothic-Bold.eot);
+	src: url(../fonts/NanumGothic-Bold.eot?#iefix) format('embedded-opentype'),
+	url(../fonts/NanumGothic-Bold.woff2) format('woff2'),
+	url(../fonts/NanumGothic-Bold.woff) format('woff');
+}
+
+html, body {
+  font-family: 'Nanum Gothic',sans-serif;
+  word-wrap: break-word;
+  -webkit-text-size-adjust: none;
+  -webkit-font-smoothing: antialiased;
+  font-size: 13px;
+  line-height: 1.538;
+  font-weight: 300;
+  letter-spacing: -0.3px;
+  color: #666;
+}
+
+/* layout */
+
+h1,
+h2,
+p { padding: 20px; }
+h1 { position: relative; font-size: 28px; color: #000; }
+h1:before { content: ""; position: absolute; left: 0; bottom: 5px; width: 100%; height: 1px; background-color: #eee; }
+h2 { font-size: 20px; color: #111; text-transform: uppercase; }
+.font12 { font-size: 12px; }
+.font14 { font-size: 14px; }
+.font16 { font-size: 16px; }
+.font18 { font-size: 18px; }
+.font20 { font-size: 20px; }
+.font100 { font-weight: 100; }
+.font200 { font-weight: 200; }
+.font300 { font-weight: 300; }
+.font400 { font-weight: 400; }
+.font500 { font-weight: 500; }
+.font600 { font-weight: 600; }
+.font700 { font-weight: 700; }
+.font800 { font-weight: 800; }
+.font900 { font-weight: 900; }
+.font-info { color: #222; }
