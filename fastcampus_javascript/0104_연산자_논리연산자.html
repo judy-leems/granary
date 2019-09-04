@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+/* 논리연산자 */
+
+// NOT !
+const a = !false;
+console.log('a=', a);
+
+// AND && 하나라도 false면 false
+const b = true && true;
+console.log('b=', b);
+
+const c = true && false;
+console.log('c=', c);
+
+const d = false && false;
+console.log('d=', d);
+
+// OR || 하나라도 true라도 true
+const e = true || true;
+console.log('e=', e);
+
+const f = true || false;
+console.log('f=', f);
+
+const g = false || false;
+console.log('g=', g);
+
+// NOT AND OR >> 순으로 읽힘
+const value = !((true && false) || (true && false) || !false);
+// !(true && false || true && false || ture)
+// !(false || false || true);
+// !(true)
+// value = false
+console.log('value=', value);
+s
+</body>
+</html>
