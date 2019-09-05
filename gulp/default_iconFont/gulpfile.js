@@ -126,103 +126,6 @@ gulp.task('iconfont:watch', () => {
   return gulp.watch(['src/assets/icons/*.svg', 'lib/icons/*'], ['iconfont']);
 });
 
-/*
-gulp.task('sprite', (callback) => {
-  const spriteSrcDir = 'src/assets/sprites',
-    spriteSrcDirWithRoot = __dirname + '/' + spriteSrcDir,
-    setSpriteCSSValMap = (obj, namespace, name, effectArr, responsive, pixelRatio) => {
-      obj.namespace = namespace;
-      obj.name = name;
-      obj.responsive = responsive;
-      obj.y = obj.y === 0 ? 0 : -obj.y;
-      obj.x = obj.x === 0 ? 0 : -obj.x;
-      if (typeof pixelRatio === 'number' && pixelRatio > 1) {
-        obj.y = obj.y / pixelRatio;
-        obj.x = obj.x / pixelRatio;
-        obj.width = obj.width / pixelRatio;
-        obj.height = obj.height / pixelRatio;
-        obj.canvas_width = obj.total_width / pixelRatio;
-        obj.canvas_height = obj.total_height / pixelRatio;
-      } else {
-        obj.canvas_width = obj.total_width;
-        obj.canvas_height = obj.total_height;
-      }
-      for (let _i = 0; _i < effectArr.length; _i++) {
-        obj.name += ':' + effectArr[_i];
-      }
-    };
-  let spriteDistArr = [];
-  try {
-    fs.readdirSync(spriteSrcDirWithRoot).map((key) => {
-      if (fs.statSync(path.join(spriteSrcDirWithRoot, key)).isDirectory() === false) return false;
-      const spriteDistImgDir = 'src/assets/image/',
-        spriteDistCSSDir = 'src/assets/sass/settings/sprite/',
-        spriteTypeCondition = key.match(REGEXP.separAtsignRegex),
-        spriteNamespace = spriteTypeCondition ? RegExp.$1 + '-' + RegExp.$2 : key,
-        spriteCssName = 'spr-' + key,
-        spriteSourceName = 'spr-' + spriteNamespace,
-        spriteSourcePath = spriteSrcDir + '/' + key + '/',
-        spriteImgPathInCSS = '/assets/image/',
-        spriteType = spriteTypeCondition ? RegExp.$2 : '1x',
-        spritePixelRatio = ~~spriteType.slice(0, 1) || 1;
-      let spriteData,
-        spriteDataOption = {
-          imgName: spriteSourceName + '.png',
-          imgPath: spriteImgPathInCSS + spriteSourceName + '.png',
-          cssName: '_' + spriteCssName + '.scss',
-          cssTemplate: 'lib/spritesmith/sprites.scss.handlebars',
-          padding: 2
-        },
-        spriteResponsive = false;
-      spriteDistArr.push(spriteDistImgDir + spriteDataOption.imgName);
-      spriteDistArr.push(spriteDistCSSDir + spriteDataOption.cssName);
-      if (spriteType == 'responsive') {
-        spriteResponsive = true;
-        spriteDataOption.retinaSrcFilter = spriteSourcePath + '*@retina.png';
-        spriteDataOption.retinaImgName = spriteSourceName + '@retina.png';
-        spriteDataOption.retinaImgPath = spriteImgPathinCSS + spriteSourceName + '@retina.png';
-        spriteDistArr.push(spriteDistImgDir + spriteDataOption.retinaImgName);
-      }
-      spriteDataOption.cssVarMap = (sprite) => {
-        if (sprite.name.match(REGEXP.separAtsignRegex) !== null) return false;
-        let spriteName = sprite.name,
-          spriteNameEffectCondition,
-          spriteEffectArr = [];
-        spriteNameEffectCondition = spriteName.match(REGEXP.separAtsignRegex);
-        spriteName = spriteNameEffectCondition ? RegExp.$1 : spriteName;
-        spriteNameEffectCondition = spriteName.match(REGEXP.separDoubledashRegex);
-        spriteName = spriteNameEffectCondition ? RegExp.$1 : spriteName;
-        if (spriteNameEffectCondition !== null) {
-          for (let _i = 2; _i <= 8; _i++) {
-            const thisRegexp = RegExp['$' + _i];
-            if (thisRegexp == '') break;
-            else spriteEffectArr.push(thisRegexp);
-          }
-        }
-        setSpriteCSSValMap(sprite, spriteNamespace, spriteName, spriteEffectArr, spriteResponsive, spritePixelRatio);
-      };
-      spriteData = gulp.src(spriteSourcePath + '*.png')
-        .pipe(plumber({
-          errorHandler: plumberErrorHandler
-        }))
-        .pipe(spritesmith(spriteDataOption));
-      spriteData.img.pipe(gulp.dest(spriteDistImgDir));
-      spriteData.css.pipe(gulp.dest(spriteDistCSSDir));
-    });
-    return createFileExistsChecker(callback, spriteDistArr);
-  } catch (e) {
-    console.log(colors.red('No such ' + spriteSrcDir + ' Directory.'));
-    return callback();
-  }
-});
-gulp.task('sprite:clean', () => {
-  return del(['src/assets/sass/!**!/sprite/', 'src/assets/image/!**!/spr-*.png']);
-});
-gulp.task('sprite:watch', () => {
-  return gulp.watch(['src/assets/sprites/!**!/!*', 'lib/spritesmith/!*'], ['sprite']);
-});
-*/
-
 gulp.task('sass', () => {
   return gulp.src(['src/assets/sass/standard/**/*.scss', 'src/assets/sass/integrated-account/**/*.scss'])
     .pipe(plumber({
@@ -395,13 +298,7 @@ gulp.task('dist:css', () => {
     .pipe(cleanCSS())
     .pipe(gulp.dest('dist/'));
 });
-// gulp.task('dist:js', () => {
-//   return gulp.src(['src/assets/js/**/*'], {
-//       base: 'src/'
-//     })
-//     .pipe(gulpIf(process.env.NODE_ENV === 'production', replace(/\'\/html\//g, '\'/svn/design/trunk/DesignMob/html/')))
-//     .pipe(gulp.dest('dist/'));
-// });
+
 gulp.task('dist', (callback) => {
   sequence('build', 'dist:image', 'dist:html', 'dist:css', () => {
     gulp.src(['src/assets/font/**/*', 'src/assets/icons/**/*', 'src/assets/js/**/*', 'src/doc/html/*', 'src/doc/assets/**/*'], {
