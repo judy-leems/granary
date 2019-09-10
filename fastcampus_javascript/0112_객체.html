@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+</head>
+<body>
+const dogName = "멍멍이";
+const dogAge = 2;
+
+console.log(dogName);
+console.log(dogAge);
+
+const dog = {
+name: "멍멍이",
+age: 2,
+cute: true,
+sample: {
+a: 1,
+b: 2
+}
+// 배열의 값은 Key: Value 의 구성으로 이루어짐
+};
+console.log(dog);
+console.log(dog.name);
+console.log(dog.age);
+
+const ironMan = {
+name: "토니 스타크",
+actor: "로버트 다우니 주니어",
+alias: "아이언맨"
+};
+
+const captainAmerica = {
+name: "스티븐 로저스",
+actor: "크리스 에반스",
+alias: "캡틴 아메리카"
+};
+
+console.log(ironMan);
+console.log(captainAmerica);
+
+function print(hero) {
+const text = `${hero.alias}(${hero.name}) 역할을 맡은 배우는 ${hero.actor}`;
+console.log(text);
+}
+print(ironMan);
+print(captainAmerica);
+
+const food = {
+a: "돼지고기",
+b: "소고기",
+c: "곱창"
+};
+
+function dinner(menu) {
+const result = `오늘은${menu.a}, 내일은${menu.b}`;
+console.log(result);
+}
+dinner(food);
+
+</body>
+</html>
