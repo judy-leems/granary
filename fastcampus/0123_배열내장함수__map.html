@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+const superheroes = ['아이언맨', '토르', '캡틴아메리카'];
+
+superheroes.forEach(function(hero){
+console.log(hero);
+})
+
+const array = [1,2,3,4,5,6,7,8];
+const square= [];
+array.forEach(n => {
+square.push(n*n);
+});
+
+console.log(square)
+
+const square1 = n => n*n;
+const squeared = array.map(square1);
+console.log(squeared);
+
+
+</body>
+</html>
