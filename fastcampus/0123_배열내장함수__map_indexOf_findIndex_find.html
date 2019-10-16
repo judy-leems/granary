@@ -18,11 +18,10 @@ squared.push(n * n);
 
 const array = [1, 2, 3, 4, 5, 6, 7, 8];
 const square = n => n * n;
-const squared1 = array.map(square);
+const squared1 = array.map(square); // map 배열 전체의 값을 변환 하고 싶을 떄 사용하는 내장함수
 const squared2 = array.map(n => n * n);
 console.log(squared1);
 console.log(squared2);
-
 
 const items = [
 {
@@ -64,8 +63,8 @@ done: false
 }
 ];
 
-const result1 = todos.indexOf(todos.text); // 특정값이랑 일치하는것 찾을떄
-console.log(result1); // console.log의 값이 -1이 나올경우에는 일치 하는 값잉 없음을 의미
+const result1 = todos.indexOf(todos.text); // 배열이 몇변째 특정값이랑 일치하는지 찾을때 사용 객체에서는 사용 하기 어렵다!
+console.log(result1); // console.log의 값이 -1이 나올경우에는 일치 하는 값이 없음을 의미
 
 const result2 = todos.findIndex(todo => todo.id === 3); //특정값을 조건으로 찾을때
 console.log(result2);
