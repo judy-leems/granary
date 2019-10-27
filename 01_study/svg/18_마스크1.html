@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .the-svg {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: #ddd;
+        }
+        .the-svg text {
+            font-size: 5rem;
+        }
+    </style>
+</head>
+<body>
+    <svg class="the-svg">
+        <defs>
+            <mask id="mask-circle">
+                <circle cx="250" cy="70" r="40" fill="#666"></circle>
+                <!-- fill 기본이 검정색이라 꼭 색을 따로 설정해주기 검정색에 가까울수록 흐리게 보이고 흰색에 가까울수록 진하게 보인다 -->
+                <style>
+                    #mask-circle circle {
+                        fill: #fff;
+                    }
+                </style>
+            </mask>
+        </defs>
+        <g mask="url('#mask-circle')">
+            <text x="10" y="100">
+                Hello SVG! Hello SVG! Hello SVG! Hello SVG! Hello SVG! Hello SVG! Hello SVG!
+            </text>
+        </g>
+    </svg>
+</body>
+</html>
