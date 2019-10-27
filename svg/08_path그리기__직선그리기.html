@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        .shapes {
+            width: 600px;
+            height: 400px;
+            background: #ddd;
+        }
+        path {
+            stroke: tomato;
+            stroke-width: 5;
+            fill: transparent;
+        }
+    </style>
+</head>
+<body>
+    <div class="infoBox">
+        <ol>
+            <li>거의 일러스트에서 펜툴로 그린것들은 path로 출력된다</li>
+            <li>
+                맨처음 펜툴을 쓴다고 했을때 위치를 이동 시키는걸 M 이라고 표현한다<br>
+                ex)M 300 200 &lt; x좌표 300 y좌표 200 이다
+            </li>
+            <li>L 은 직선명령임<br>
+                ex)M 300 200 L 500 100 &lt; 는 300 200위치해 있는 점이 직선으로 500 100위치로 직선이 그려짐</li>
+            <li>
+                H 는 가로 직선임(=수평선)<br>
+                ex)H 50은 가로로 50직선이 쭉 그어진다
+            </li>
+            <li>
+                V는 세로 직선임(=수직선)<br>
+                ex)V 300은 세로로 300의 직선이 그려진다
+            </li>
+            <li>
+                패스를 닫는 명령은 Z
+            </li>
+        </ol>
+    </div>
+    <svg class="shapes" xmlns="http://www.w3.org/2000/svg">
+        <path d="M 300 200 L 500 100 H 50 V 300 Z"></path>
+    </svg>
+</body>
+</html>
