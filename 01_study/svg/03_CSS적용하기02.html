@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SVG</title>
+</head>
+<body>
+<div class="infoBox">
+    <ol>
+        <li>svg안에 스타일 태그를 직접 넣어서 사용 해도됨 &lt; svg 파일 자체에 css가 포함 된거라 svg를 단독으로 사용할 수 있다.</li>
+        <li>svg는 xml언어를 사용하기 때문에 간혹 스타일 태그가 오류가 날수 있는데 방지하기 위해서 CDATA를 선언해준다.</li>
+    </ol>
+</div>
+<svg class="face" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 479.15 523.12">
+    <style type="text/css">
+        <![CDATA[
+        .face {
+            position: absolute;
+            top: 0;
+            right: 0;
+            left: 0;
+            bottom: 0;
+            width: 200px;
+            margin: auto;
+        }
+        .face__hair {
+            fill: brown;
+        }
+        .face__hair:nth-of-type(1) {
+            fill: blue;
+        }
+        @keyframes eye-ani {
+            0% {
+                -webkit-transform: scale(0.9);
+                -moz-transform: scale(0.9);
+                -ms-transform: scale(0.9);
+                -o-transform: scale(0.9);
+                transform: scale(0.9);
+            }
+            100% {
+                -webkit-transform: scale(1.1);
+                -moz-transform: scale(1.1);
+                -ms-transform: scale(1.1);
+                -o-transform: scale(1.1);
+                transform: scale(1.1);
+            }
+        }
+        .face__eyes {
+            -webkit-animation: eye-ani 1s infinite alternate;
+            -o-animation: eye-ani 1s infinite alternate;
+            animation: eye-ani 1s infinite alternate;
+        }
+        .face__eyes:nth-of-type(2) {
+            transform-origin: 168.45px 290.03px;
+        }
+        .face__eyes:nth-of-type(3) {
+            transform-origin: 323.68px 290.03px;
+        }
+        ]]>
+    </style>
+    <circle cx="246.07" cy="290.03" r="213.08" stroke-width="40" fill="none" stroke="#231f20" stroke-miterlimit="10"/>
+    <circle class="face__eyes" cx="168.45" cy="290.03" r="27.78"/>
+    <circle class="face__eyes" cx="323.68" cy="290.03" r="27.78"/>
+    <path d="M357.11 356.58a150.78 150.78 0 01-222.09 0" stroke-width="30" fill="none" stroke="#231f20"
+          stroke-miterlimit="10"/>
+    <ellipse class="face__hair" cx="129.04" cy="145.91" rx="129.04" ry="72.96"/>
+    <ellipse class="face__hair" cx="314.17" cy="125.85" rx="129.95" ry="67.48"/>
+    <ellipse class="face__hair" cx="192.88" cy="78.88" rx="135.42" ry="78.88"/>
+</svg>
+</body>
+</html>

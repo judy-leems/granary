@@ -1,0 +1,20 @@
+@charset "utf-8";
+
+{{#block "sprites"}}
+	{{#each sprites}}
+		{{#unless @index}}
+			$spr-{{namespace}}: (
+			width: {{canvas_width}}px,
+			height: {{canvas_height}}px,
+			background-image: '{{escaped_image}}'
+			);
+		{{/unless}}
+		$spr-{{namespace}}-{{name}}: (
+		canvas: $spr-{{namespace}},
+		width: {{width}}px,
+		height: {{height}}px,
+		y: {{offset_y}}px,
+		x: {{offset_x}}px
+		);
+	{{/each}}
+{{/block}}

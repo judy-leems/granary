@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+</head>
+<body>
+/* 조건문 */
+const a = 1;
+if (a + 1 === 2) {
+console.log("a + 1  이 2입니다.");
+console.log("blabla");
+// true 일 경우 console.log 출력 fasle면 노출 X
+}
+
+const b = 1;
+if (b + 1 === 2) {
+const b = 2;
+console.log("if문 안의 b 값은" + b);
+}
+console.log("if문 밖의 b의 값은" + b);
+
+const c = 10;
+if (c > 15) {
+console.log("c가 15보다 큽니다.");
+} else {
+console.log("c가 15보다 크지 않습니다.");
+}
+
+if (c === 5) {
+console.log("5입 니다.");
+} else if (c === 10) {
+console.log("10 입니다.");
+} else if (c === 7) {
+console.log("7 입니다.");
+} else {
+console.log("5도 아니고 10도 아닙니다. 7도 아니네요.");
+}
+
+</body>
+</html>

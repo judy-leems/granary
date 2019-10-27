@@ -1,0 +1,99 @@
+@charset "utf-8";
+
+/* ==========================================================================
+   #FONTS -- NOTO SANS CJK
+   ========================================================================== */
+
+@font-face {
+	font-family: 'Noto Sans CJK KR Web';
+	font-style: normal;
+	font-weight: 900;
+	src: url("../fonts/NotoSansCJKkr-Black.eot");
+	src: url("../fonts/NotoSansCJKkr-Black.eot?#iefix") format("embedded-opentype"), url("../fonts/NotoSansCJKkr-Black.woff2") format("woff2"), url("../fonts/NotoSansCJKkr-Black.woff") format("woff"), url("../fonts/NotoSansCJKkr-Black.ttf") format("truetype"), url("../fonts/NotoSansCJKkr-Black.svg#NotoSansCJKkr-Black") format("svg");
+}
+
+@font-face {
+	font-family: 'Noto Sans CJK KR Web';
+	font-style: normal;
+	font-weight: 700;
+	src: url("../fonts/NotoSansCJKkr-Bold.eot");
+	src: url("../fonts/NotoSansCJKkr-Bold.eot?#iefix") format("embedded-opentype"), url("../fonts/NotoSansCJKkr-Bold.woff2") format("woff2"), url("../fonts/NotoSansCJKkr-Bold.woff") format("woff"), url("../fonts/NotoSansCJKkr-Bold.ttf") format("truetype"), url("../fonts/NotoSansCJKkr-Bold.svg#NotoSansCJKkr-Bold") format("svg");
+}
+
+@font-face {
+	font-family: 'Noto Sans CJK KR Web';
+	font-style: normal;
+	font-weight: 500;
+	src: url("../fonts/NotoSansCJKkr-Medium.eot");
+	src: url("../fonts/NotoSansCJKkr-Medium.eot?#iefix") format("embedded-opentype"), url("../fonts/NotoSansCJKkr-Medium.woff2") format("woff2"), url("../fonts/NotoSansCJKkr-Medium.woff") format("woff"), url("../fonts/NotoSansCJKkr-Medium.ttf") format("truetype"), url("../fonts/NotoSansCJKkr-Medium.svg#NotoSansCJKkr-Medium") format("svg");
+}
+
+@font-face {
+	font-family: 'Noto Sans CJK KR Web';
+	font-style: normal;
+	font-weight: 400;
+	src: url("../fonts/NotoSansCJKkr-Regular.eot");
+	src: url("../fonts/NotoSansCJKkr-Regular.eot?#iefix") format("embedded-opentype"), url("../fonts/NotoSansCJKkr-Regular.woff2") format("woff2"), url("../fonts/NotoSansCJKkr-Regular.woff") format("woff"), url("../fonts/NotoSansCJKkr-Regular.ttf") format("truetype"), url("../fonts/NotoSansCJKkr-Regular.svg#NotoSansCJKkr-Regular") format("svg");
+}
+
+@font-face {
+	font-family: 'Noto Sans CJK KR Web';
+	font-style: normal;
+	font-weight: 350;
+	src: url("../fonts/NotoSansCJKkr-DemiLight.eot");
+	src: url("../fonts/NotoSansCJKkr-DemiLight.eot?#iefix") format("embedded-opentype"), url("../fonts/NotoSansCJKkr-DemiLight.woff2") format("woff2"), url("../fonts/NotoSansCJKkr-DemiLight.woff") format("woff"), url("../fonts/NotoSansCJKkr-DemiLight.ttf") format("truetype"), url("../fonts/NotoSansCJKkr-DemiLight.svg#NotoSansCJKkr-DemiLight") format("svg");
+}
+
+@font-face {
+	font-family: 'Noto Sans CJK KR Web';
+	font-style: normal;
+	font-weight: 300;
+	src: url("../fonts/NotoSansCJKkr-Light.eot");
+	src: url("../fonts/NotoSansCJKkr-Light.eot?#iefix") format("embedded-opentype"), url("../fonts/NotoSansCJKkr-Light.woff2") format("woff2"), url("../fonts/NotoSansCJKkr-Light.woff") format("woff"), url("../fonts/NotoSansCJKkr-Light.ttf") format("truetype"), url("../fonts/NotoSansCJKkr-Light.svg#NotoSansCJKkr-Light") format("svg");
+}
+
+@font-face {
+	font-family: 'Noto Sans CJK KR Web';
+	font-style: normal;
+	font-weight: 100;
+	src: url("../fonts/NotoSansCJKkr-Thin.eot");
+	src: url("../fonts/NotoSansCJKkr-Thin.eot?#iefix") format("embedded-opentype"), url("../fonts/NotoSansCJKkr-Thin.woff2") format("woff2"), url("../fonts/NotoSansCJKkr-Thin.woff") format("woff"), url("../fonts/NotoSansCJKkr-Thin.ttf") format("truetype"), url("../fonts/NotoSansCJKkr-Thin.svg#NotoSansCJKkr-Thin") format("svg");
+}
+
+html, body {
+  font-family: 'Noto Sans CJK KR Web';
+  word-wrap: break-word;
+  -webkit-text-size-adjust: none;
+  -webkit-font-smoothing: antialiased;
+  font-size: 13px;
+  line-height: 1.538;
+  font-weight: 300;
+  letter-spacing: -0.3px;
+  color: #666;
+}
+
+/* layout */
+
+h1,
+h2,
+p { padding: 20px; }
+h1 { position: relative; font-size: 28px; color: #000; }
+h1:before { content: ""; position: absolute; left: 0; bottom: 5px; width: 100%; height: 1px; background-color: #eee; }
+h2 { font-size: 20px; color: #111; text-transform: uppercase; }
+.font12 { font-size: 12px; }
+.font14 { font-size: 14px; }
+.font16 { font-size: 16px; }
+.font18 { font-size: 18px; }
+.font20 { font-size: 20px; }
+.font100 { font-weight: 100; }
+.font200 { font-weight: 200; }
+.font300 { font-weight: 300; }
+.font300 { font-weight: 300; }
+.font350 { font-weight: 350; }
+.font400 { font-weight: 400; }
+.font500 { font-weight: 500; }
+.font600 { font-weight: 600; }
+.font700 { font-weight: 700; }
+.font800 { font-weight: 800; }
+.font900 { font-weight: 900; }
+.font-info { color: #222; }

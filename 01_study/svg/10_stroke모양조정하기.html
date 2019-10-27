@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SVG</title>
+    <style type="text/css">
+        .shapes {
+            width: 600px;
+            height: 400px;
+            background: #ddd;
+        }
+        path {
+            stroke: tomato;
+            stroke-width: 20;
+
+            /*
+            stroke linecap은 선의 끝부분 조절한다
+            stroke-linecap: butt;
+            stroke-linecap: round;
+            */
+            stroke-linecap: round;
+            /*
+            stroke-linejoin 선이 만나는 지점을 조절
+            */
+            stroke-linejoin: round;
+            fill: transparent;
+        }
+    </style>
+</head>
+<body>
+    <svg class="shapes" xmlns="http://www.w3.org/2000/svg">
+        <path d="M 50 200 L 300 100 L 400 200"></path>
+    </svg>
+</body>
+</html>
