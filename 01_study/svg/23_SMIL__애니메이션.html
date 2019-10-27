@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <svg class="svg" viewBox="0 0 1000 1000">
+        <defs>
+            <script>
+                window.addEventListener('DOMContentLoaded', () => {
+                    const rectElem = document.querySelector('.rect');
+                    const aniElem = document.querySelector('.ani');
+
+                    rectElem.addEventListener('click', () => {
+                        aniElem.beginElement();
+                    })
+                });
+            </script>
+        </defs>
+        <rect class="rect" x="10" y="10" width="20%" height="20%">
+            <animate class="ani" attributeName="x" dur="1s" to="700" repeatCount="1" fill="freeze" begin="indefinite"></animate>
+            <!--
+            attributeName 바꿀 속성을 넣는다
+            dur > duration
+            to > 목적 위치
+            repeatCount 반복 하는 숫자 indefinite는 무한 반복
+            fill > 멈추는 상태를 조절
+            begin > 애니메이션 딜레이 되는 시간 indefinite로 설정하면 시작 안되게 할수 있음
+            -->
+        </rect>
+    </svg>
+</body>
+</html>

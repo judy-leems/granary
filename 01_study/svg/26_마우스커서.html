@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        @keyframes eye-ball-ani {
+            0% {
+                transform: translateX(-20px);
+            }
+            100% {
+                transform: translateX(20px);
+            }
+        }
+        @keyframes eye-ani {
+            80% {
+                transform: scaleY(1);
+            }
+            90% {
+                transform: scaleY(0.01);
+            }
+            100% {
+                transform: scaleY(0.01);
+            }
+        }
+        @keyframes ell-ani {
+            0% {
+                stroke-dashoffset: -713;
+            }
+            50% {
+                stroke-dashoffset: 0;
+            }
+            100% {
+                stroke-dashoffset: -713;
+            }
+        }
+        @keyframes rotate-ani-1 {
+            100% {
+                transform: rotate3D(0, 1, 0, 360deg); /* rotate3D(x, y, z, deg) 좌표의 비율로 나오는 축을 기준으로 회전을 시키는것 */
+            }
+        }
+        @keyframes rotate-ani-2 {
+            100% {
+                transform: rotate3D(2, 1.22, 0, 360deg);
+            }
+        }
+        @keyframes rotate-ani-3 {
+            100% {
+                transform: rotate3D(-2, 1.22, 0, 360deg);
+            }
+        }
+        .react-mon {
+            position: absolute;
+            top: 0;
+            right: 0;
+            left: 0;
+            bottom: 0;
+            width: 200px;
+            height: 200px;
+            margin: auto;
+        }
+        .eye-ball {
+            animation: eye-ball-ani 1s alternate linear infinite;
+        }
+        .eye {
+            transform-origin: 163px 146px;
+            animation: eye-ani 2s alternate infinite;
+        }
+        .cls-1 {
+            fill: none;
+            stroke: #61dafb;
+            stroke-miterlimit: 10;
+            stroke-width: 15px;
+            opacity: .3;
+        }
+        .cls-eff {
+            opacity: 1;
+            stroke-dasharray: 713;
+            stroke-dashoffset: -713;
+            animation: ell-ani 0.7s infinite ease-in-out;
+        }
+        .cls-eff.cls-eff1 {
+            animation-delay: 0s;
+        }
+        .cls-eff.cls-eff2 {
+            animation-delay: .1s;
+        }
+        .cls-eff.cls-eff3 {
+            animation-delay: .2s;
+        }
+        .ells {
+            transform-origin: 50% 50%;
+        }
+        .ells-1 {
+            animation: rotate-ani-1 5s linear infinite;
+        }
+        .ells-2 {
+            animation: rotate-ani-2 5s linear infinite;
+        }
+        .ells-3 {
+            animation: rotate-ani-3 5s linear infinite;
+        }
+    </style>
+</head>
+<body>
+<svg class="react-mon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 327 291.84">
+    <defs>
+        <mask id="eye-mask">
+            <ellipse class="eye" cx="163.5" cy="145.92" rx="28" ry="14" fill="#fff"/><!-- 같이 eye class 넣어서 깜빡 거리게 한다 ..! -->
+        </mask>
+    </defs>
+
+    <g class="ells ells-1">
+        <ellipse class="cls-1" cx="163.5" cy="145.92" rx="156" ry="60"/><!-- 선이 그려지는 형태 연한거! -->
+        <ellipse class="cls-1 cls-eff cls-eff1" cx="163.5" cy="145.92" rx="156" ry="60"/><!-- 선이 그려지는 형태 진한거! -->
+    </g>
+    <g class="ells ells-2">
+        <ellipse class="cls-1" cx="384" cy="384" rx="156" ry="60" transform="matrix(.5 -.87 .87 .5 -361.05 286.47)"/>
+        <ellipse class="cls-1 cls-eff cls-eff2" cx="384" cy="384" rx="156" ry="60" transform="matrix(.5 -.87 .87 .5 -361.05 286.47)"/>
+    </g>
+    <g class="ells ells-3">
+        <ellipse class="cls-1" cx="384" cy="384" rx="60" ry="156" transform="rotate(-30 -170.504 676.413)"/>
+        <ellipse class="cls-1 cls-eff cls-eff3" cx="384" cy="384" rx="60" ry="156" transform="rotate(-30 -170.504 676.413)"/>
+    </g>
+
+
+    <circle cx="163.5" cy="145.92" r="31" fill="#61dafb"/>
+    <ellipse class="eye" cx="163.5" cy="145.92" rx="28" ry="14" fill="#fff"/>
+    <g mask="url(#eye-mask)">;
+        <circle class="eye-ball" cx="163.5" cy="145.92" r="13" fill="#333"/>
+    </g>
+</svg>
+<script type="text/javascript">
+
+    (() => {
+        const reactMonElem = document.querySelector(".react-mon");
+        const targetPos = { x: 0, y: 0 }; //마우스 위치
+        const easeValue = 0.05; // 가속도를 나타내는 수
+        const reactMonInfo = { x: 0, y: 0 };
+
+        window.addEventListener('mousemove', (e) => {
+            targetPos.x = e.clientX - innerWidth * 0.5; // 현재 마우스의 위치에서 브라우저의 절반만큼 뺴준다(0.5 를 곱한 이유) > 이곳이 몬 원래 위치
+            targetPos.y = e.clientY - innerHeight * 0.5;
+        });
+
+        let dx; // 마우스 커서와 리액트몬의 거리
+        let dy;
+
+        function render() {
+            dx = targetPos.x - reactMonInfo.x; // 먼저 마우스가 가고 그 다음에 리액트몬이 따라 오게 하기 위해서 설정
+            dy = targetPos.y - reactMonInfo.y;
+            reactMonInfo.x = reactMonInfo.x + dx * easeValue; // 현재 리액트몬의 위치 + ( 두지점 사이의 거리 * 0.05 )
+            reactMonInfo.y = reactMonInfo.y + dy * easeValue;
+            reactMonElem.style.transform = `translate3d(${reactMonInfo.x}px, ${reactMonInfo.y}px, 0px)`;
+            requestAnimationFrame(render);
+        }
+        render();
+    })(); /* 전역변수 사용 회피하려고 자동실행 하려고 괄호로 묶음? */
+
+
+
+</script>
+</body>
+</html>

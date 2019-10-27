@@ -12,7 +12,14 @@
 <body>
     <svg class="svg" viewBox="0 0 1000 1000">
         <rect x="10" y="10" width="20%" height="20%">
-            <animate></animate>
+            <animate attributeName="x" dur="1s" to="700" repeatCount="1" fill="freeze"></animate>
+            <!--
+            attributeName 바꿀 속성을 넣는다
+            dur > duration
+            to > 목적 위치
+            repeatCount 반복 하는 숫자 indefinite는 무한 반복
+            fill > 멈추는 상태를 조절
+            -->
         </rect>
     </svg>
 </body>
