@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        img {
+            max-width: 100%;
+        }
+        .content {
+            height: 1000vh; /* viewport height 의 약자임*/
+            padding: 20%;
+            background: yellowgreen;
+        }
+        .output {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 100%;
+            font-size: 2rem;
+            font-weight: 200;
+            color: #fff;
+            background: rgba(0, 0, 0, 0.4);
+        }
+        .ilbuni {
+            width: 100px;
+            margin: 20px auto;
+            transition: 1s;
+        }
+        .ilbuni.zoom {
+            transform: scale(2);
+        }
+    </style>
+</head>
+<body>
+    <div class="output">output</div>
+    <div class="content">
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ac diam justo. Aenean at nibh sed tellus maximus scelerisque et eget orci. Mauris porta tempus urna. Etiam mollis faucibus purus efficitur interdum. Curabitur congue odio vel lacinia elementum. Aliquam lobortis commodo justo, a commodo massa. Morbi quis sapien sit amet leo venenatis hendrerit ac a leo. Vivamus varius sem turpis, id tempus dui fringilla vel. Maecenas lacinia ac magna sit amet tincidunt. Maecenas placerat cursus orci ac tempus. Nam eu nisi mi. Morbi imperdiet vulputate facilisis.</p>
+        <figure class="ilbuni">
+            <img src="./assets/image/ilbuni_0.png" alt="">
+        </figure>
+    </div>
+    <script type="text/javascript">
+        (function(){
+            /*
+            1. 스크롤 할떄마다 y의 값을 가져 온다.
+            2. 스크롤 할떄 마다 커질 객체의 top 값을 가져온다.
+            */
+
+
+            const outputElem = document.querySelector('.output');
+            const ilbuniElem = document.querySelector('.ilbuni');
+
+            function showValue() {
+                // outputElem.innerHTML = window.pageYOffset;
+                // outputElem.innerHTML = ilbuniElem.offsetTop;
+                //console.log(ilbuniElem.getBoundingClientRect());
+                //outputElem.innerHTML = ilbuniElem.getBoundingClientRect().top;
+
+                let posY = ilbuniElem.getBoundingClientRect().top;
+                outputElem.innerHTML = posY;
+
+                console.log(window.innerHeight);
+                if(posY < window.innerHeight*0.2) { //0.2를 곱하는건 높이값에서 5/1 하기 위해서
+                    ilbuniElem.classList.add('zoom');
+                } else {
+                    ilbuniElem.classList.remove('zoom'); // 다시 되돌릴려면
+                }
+
+            }
+
+            window.addEventListener('scroll', function() {
+                showValue();
+
+            });
+        })();
+    </script>
+</body>
+</html>
