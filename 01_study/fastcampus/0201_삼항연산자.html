@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+/*
+삼항연산자
+condition ? true : false
+*/
+
+const array = [];
+/*
+삼항연산자를 쓰지 않고 if문을 쓸경우
+let text = "";
+if (array.length === 0) {
+text = "배열이 비어있습니다.";
+} else {
+text = "배열이 비어있지 않습니다.";
+}
+*/
+
+/* 삼항연산자는 중첩하여서 사용할수 있지만
+왠만하면 중첩하여 사용하지말고 차라리 if문을 쓰는게 더 편하다. */
+
+let text =array.length === 0
+? "배열이 비어있습니다."
+: "배열이 비어있지 않습니다.";
+
+console.log(text);
+
+/* 삼항연산자 중첩 */
+const condition1 = false;
+const condition2 = false;
+const value = condition1
+? '와우!'
+: condition2
+? 'blabal'
+: 'foo'
+
+console.log(value);
+
+
+
+</body>
+</html>

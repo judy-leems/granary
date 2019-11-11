@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+true && true; // true
+true && false; // false
+true || false; // true
+false || true; // true
+
+const dog = {
+name: "멍멍이"
+};
+
+function getName(animal) {
+/* if(animal) {
+return animal.name && animal.name;
+}
+return undefined; */
+return animal && animal.name;
+}
+
+const name = getName(dog);
+console.log(name);
+
+//결과가 true 면 값은 오른쪽에 있는거
+console.log(true && "hello");
+console.log(false && "hello");
+console.log("hello" && "bye");
+
+//falsy면 falsy면 가 답 ..?
+console.log(null && "hello");
+console.log(undefined && "hello");
+console.log("" && "hello");
+console.log(0 && "hello");
+console.log(1 && "hello");
+console.log(1 && 1);
+
+
+/* && 연산자 */
+const object = { name: "adfs" };
+const name = object && object.name;
+console.log(name);
+
+
+/* || 연산자 */
+const namelessDog = {
+name: "뭉뭉이"
+};
+
+function getName(animal) {
+const name = animal && animal.name;
+/*
+if (!name) {
+return "이름이 없는 동물입니다.";
+}
+return name;
+*/
+
+return name || "이름이 없는 동물 입니다.";
+}
+
+const name = getName(namelessDog);
+console.log(name);
+
+
+
+// or 연산자는 falsy한 값이 나오면 오른쪽값이 출력
+console.log(false || "hello");
+console.log("" || "이름없다");
+console.log(null || "널이다~~");
+console.log(undefined || "defined 되지 않았다!");
+console.log(0 || "제로다");
+
+// truthy한 값이 나오면 오른쪽은 안봄
+console.log(1 || "음?");
+console.log(true || "여기안본다");
+console.log("와아" || "여기안봐요");
+console.log([] || "노노");
+
+
+</body>
+</html>
