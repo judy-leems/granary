@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+</head>
+<body>
+/*
+1. 기본
+const slime = {
+name: "슬라임"
+};
+
+const cuteSlime = {
+name: "슬라임",
+attribute: "cute"
+};
+
+const purpleCuteSlime = {
+name: "슬라임",
+attribute: "cute",
+color: "purple"
+};
+
+
+console.log(slime);
+console.log(cuteSlime);
+console.log(purpleCuteSlime);
+
+spread를 이용하면 기존에 썻던 객체의 값을
+불러올수 있음..!
+
+*/
+
+/*
+2. spread 연산자
+const slime = {
+name: "슬라임"
+};
+
+const cuteSlime = {
+...slime,
+attribute: "cute"
+};
+
+const purpleCuteSlime = {
+...cuteSlime,
+color: "purple"
+};
+
+console.log(slime);
+console.log(cuteSlime);
+console.log(purpleCuteSlime);
+*/
+
+/*
+3. 객체선언
+const slime = {
+name: "슬라임"
+};
+
+const cuteSlime = slime;
+cuteSlime.attribute = "cute";
+
+const purpleCuteSlime = cuteSlime;
+purpleCuteSlime.color = "purple";
+
+console.log(slime);
+console.log(cuteSlime);
+console.log(purpleCuteSlime);
+
+console.log(slime === cuteSlime); //true
+서로 같은 객체를 가르킴 spread 연산자를 사용하면
+기존의 값을 복사하는것이라서 같지 않음. 아래 내용 참고
+*/
+
+const slime = {
+name: "슬라임"
+};
+
+const cuteSlime = {
+...slime,
+attribute: "cute"
+};
+
+const purpleCuteSlime = {
+...cuteSlime,
+color: "purple"
+};
+
+const greenCuteSLime = {
+color: "green",
+...purpleCuteSlime
+// color: 'green' > 이때는 green
+};
+
+console.log(slime);
+console.log(cuteSlime);
+console.log(purpleCuteSlime);
+console.log(slime === cuteSlime); //false
+
+const animals = ["개", "고양이", "참새"];
+const anotherAnimals = [...animals, "비둘기"];
+
+console.log(animals);
+console.log(anotherAnimals);
+
+const numbers = [1, 2, 3, 4, 5];
+const spreadNumbers = [...numbers, 1000, ...numbers];
+
+console.log(numbers);
+console.log(spreadNumbers);
+
+</body>
+</html>

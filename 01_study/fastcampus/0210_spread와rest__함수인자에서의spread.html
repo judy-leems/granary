@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+</head>
+<body>
+/*
+인자 > 함수를 사용할때 넣어주는 값.
+ex) const result = subtract(1, 2);
+*/
+
+function sum(...rest) {
+return rest.reduce((acc, current) => acc + current, 0);
+}
+
+const numbers = [1, 2, 3, 4, 5, 6, 7, 8];
+console.log(sum(1, 2, 3, 4, 5, 6, 7, 8));
+
+/* 연습 문제 최대값을 구하라 */
+내가 푼거
+function max(...rest) {
+return Math.max.apply(null, rest);
+}
+
+const result = max(1, 2, 3, 4, 10, 5, 6, 7);
+console.log(result);
+
+해답 풀이
+function max(...numbers) {
+return numbers.reduce(
+// acc 이 current 보다 크면 결과값을 current 로 하고
+// 그렇지 않으면 acc 가 결과값
+(acc, current) => (current > acc ? current : acc),
+numbers[0]
+);
+}
+
+const result = max(1, 2, 3, 4, 5, 10, 5, 6, 7);
+console.log(result);
+
+
+</body>
+</html>

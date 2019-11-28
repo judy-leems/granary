@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+</head>
+<body>
+const purpleCuteSlime = {
+name: "슬라임",
+attribute: "cute",
+color: "purple"
+};
+
+const { color, ...cuteSlime } = purpleCuteSlime;
+
+console.log(color);
+console.log(cuteSlime);
+console.log(purpleCuteSlime);
+
+const { attribute, ...slime } = cuteSlime;
+console.log(slime);
+
+/*
+rest > 객체의 배열, 함수에서 사용 가능
+rest는 spread 와 다르게 모아오는 기능을 한다..?
+rest는 앞에올수 없음 맨마지막에와야함
+*/
+
+const numbers = [0, 1, 2, 3, 4, 5, 6];
+const [one, two, ...rest] = numbers;
+console.log(one);
+console.log(two);
+console.log(rest);
+
+</body>
+</html>

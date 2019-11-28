@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+</head>
+<body>
+const value = "hello!"; // global scope
+
+function myFunction() {
+console.log("myFunction: ");
+console.log(value);
+}
+
+function otherFunction() {
+console.log("otherFunction: ");
+const value = "bye!"; // 이 함수안에서 유효한 값이됨 > 함수형 scope
+console.log(value);
+}
+
+myFunction();
+otherFunction();
+
+console.log("global scope:");
+console.log(value);
+
+
+
+const value = 'hello!';
+
+function myFunction() {
+const value = 'bye!';
+const anotherValue = 'world';
+function functionInside() {
+console.log('functionInside: ');
+console.log(value);
+console.log(anotherValue);
+}
+functionInside();
+}
+
+myFunction();
+console.log('global scope: ');
+console.log(value);
+console.log(anotherValue); // 함수 안에 있는거기 떄문에 밖에 없다고 나옴
+
+
+
+const value = "hello!";
+
+function myFunction() {
+const value = "bye!";
+if (true) {
+const value = "world";
+console.log("block scope: ");
+console.log(value);
+}
+console.log("function scope: ");
+console.log(value);
+}
+
+myFunction();
+console.log("global scope: ");
+console.log(value);
+
+
+// const 랑 var 로 선언할 경우 값이 다르다.
+
+</body>
+</html>
