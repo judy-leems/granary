@@ -191,11 +191,11 @@ gulp.task('js', function() {
 			errorHandler: plumberOptionErrorHandler
 		}))
 		.pipe(browserify())
-		.pipe(rename('bundle.js'))
+		.pipe(rename('entry.js'))
 		.pipe(gulp.dest('src/resources/js/'));
 });
 gulp.task('js:clean', function() {
-	return del(['src/resources/js/bundle.js']);
+	return del(['src/resources/js/entry.js']);
 });
 gulp.task('js:watch', function() {
 	return gulp.watch(['src/resources/js/**/*.js'], ['js']);
