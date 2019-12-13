@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+</head>
+<body>
+
+/*
+성공할 경우
+function sleep(ms) {
+return new Promise(resolve => setTimeout(resolve, ms));
+}
+async function process() { // async를 사용할때 함수 앞부분에 async를 작성하고
+console.log('안녕하세요!');
+await sleep(1000); // promise를 불러 올땐 await을 붙여준다.
+console.log('반갑습니다!');
+return true;
+}
+process().then(value => {
+console.log(value);
+});
+*/
+
+/* 실패할 경우 */
+
+function sleep(ms) {
+return new Promise(resolve => setTimeout(resolve, ms));
+}
+async function makeError() {
+await sleep(1000);
+const error = new Error();
+throw error;
+}
+
+async function process() {
+try {
+await makeError();
+} catch (e) {
+console.error(e);
+}
+}
+process();
+
+</body>
+</html>

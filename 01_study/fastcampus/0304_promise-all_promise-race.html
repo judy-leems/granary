@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+</head>
+<body>
+function sleep(ms) {
+return new Promise(resolve => setTimeout(resolve, ms));
+}
+const getDog = async () => {
+await sleep(1000);
+return "멍멍이";
+};
+const getRabbit = async () => {
+await sleep(500);
+return "토끼";
+};
+const getTurtle = async () => {
+await sleep(3000);
+return "거북이";
+};
+
+async function process() {
+/*
+promise를 하나씩 호출할 경우
+const dog = await getDog();
+console.log(dog);
+const rabbit = await getRabbit();
+console.log(rabbit);
+const turtle = await getTurtle();
+console.log(turtle);
+*/
+/*
+promise를 한번에 호출할땐 promise all을 사용한다
+*/
+const start = Date.now();
+const result = await Promise.all([getDog(), getRabbit(), getTurtle()]);
+console.log("몇초 걸렸는지 알려주는 부분 :" + (Date.now() - start));
+console.log(result);
+
+const [dog, rabbit, turtle] = await Promise.all([getDog(), getRabbit(), getTurtle()]);
+console.log(dog);
+console.log(rabbit);
+console.log(turtle);
+
+// race는 all이랑 비슷한데 3개의 배열중에 가장 빨리 끝난거를 호출 한다.
+const first = await Promise.race([
+getDog(),
+getRabbit(),
+getTurtle()
+]);
+console.log(first);
+}
+process();
+
+</body>
+</html>

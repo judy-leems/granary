@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+</head>
+<body>
+<h2 id="number">0</h2>
+<div>
+	<button id="increase">+1</button>
+	<button id="decrease">-1</button>
+</div>
+
+<script>
+	const number = document.getElementById("number");
+	const increase = document.getElementById("increase");
+	const decrease = document.getElementById("decrease");
+	/* 아이디가 없을 경우 선택자 선택 하는건
+    const buttons = document.querySelectorAll('button');
+    console.log(buttons);
+    const [increase, decrease] = buttons;
+    */
+
+	console.log(number);
+	console.log(increase);
+	console.log(decrease);
+
+	increase.onclick = () => {
+		const current = parseInt(number.innerText, 10);
+		number.innerText = current + 1;
+	};
+
+	decrease.onclick = () => {
+		const current = parseInt(number.innerText, 10);
+		number.innerText = current - 1;
+	};
+</script>
+
+
+
+</body>
+</html>
