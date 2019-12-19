@@ -186,16 +186,16 @@ gulp.task('html:watch', function() {
 });
 
 gulp.task('js', function() {
-	return gulp.src('src/resources/js/entry.js')
+	return gulp.src('src/resources/js/index.js')
 		.pipe(plumber({
 			errorHandler: plumberOptionErrorHandler
 		}))
 		.pipe(browserify())
-		.pipe(rename('entry.js'))
+		.pipe(rename('index.js'))
 		.pipe(gulp.dest('src/resources/js/'));
 });
 gulp.task('js:clean', function() {
-	return del(['src/resources/js/entry.js']);
+	return del(['src/resources/js/index.js']);
 });
 gulp.task('js:watch', function() {
 	return gulp.watch(['src/resources/js/**/*.js'], ['js']);
