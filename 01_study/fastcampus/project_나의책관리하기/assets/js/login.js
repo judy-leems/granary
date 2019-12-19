@@ -1,60 +1,58 @@
-/**
- * Created by judy on 2019-12-13.
- */
-
-
 function getToken() {
-    return localStorage.getItem('token');
+  return localStorage.getItem('token');
 }
 
 async function login(event) {
-    event.preventDefault();
-    event.stopPropagation();
-    const emailElement = document.querySelector('#email');
-    const passwordElement = document.querySelector('#password');
+  event.preventDefault();
+  event.stopPropagation();
 
-    const email = emailElement.value;
-    const password = passwordElement.value;
+  const emailElement = document.querySelector('#email');
+  const passwordElement = document.querySelector('#password');
 
-    try {
-        const res = await axios.post('https://api.marktube.tv/v1/me', {
-            email,
-            password,
-        });
-        const {token} = res.data; // const token = res.data.token;
-        if (token === undefined) {
-            return; // 혹은 에러메세지를 입력해도 됨
-        }
-        localStorage.setItem('token', token);
-        location.assign('/');
-    } catch (error) {
-        const data = error.response.data;
-        if (data) {
-            const state = data.error;
-            if(state === 'USER_NOT_EXIST') {
-                alert('사용자가 존재하지 않습니다.');
-            } else if(state === 'PASSWORD_NOT_MATCH') {
-                alert('비밀번호가 틀렸습니다.');
-            }
-        }
+  const email = emailElement.value;
+  const password = passwordElement.value;
+
+  console.log(email, password);
+
+  try {
+    const res = await axios.post('https://api.marktube.tv/v1/me', {
+      email,
+      password,
+    });
+    const { token } = res.data;
+    if (token === undefined) {
+      return;
     }
+    localStorage.setItem('token', token);
+    location = '/';
+  } catch (error) {
+    const data = error.response.data;
+    if (data) {
+      const state = data.error;
+      if (state === 'USER_NOT_EXIST') {
+        alert('사용자가 존재하지 않습니다.');
+      } else if (state === 'PASSWORD_NOT_MATCH') {
+        alert('비밀번호가 틀렸습니다.');
+      }
+    }
+  }
 }
 
 function bindLoginButton() {
-    const form = document.querySelector('#form-login');
-    form.addEventListener('submit', login);
+  const form = document.querySelector('#form-login');
+  form.addEventListener('submit', login);
 }
 
-function main() {
-    // 버튼에 이벤트 연결
-    bindLoginButton();
+async function main() {
+  // 버튼에 이벤트 연결
+  bindLoginButton();
 
-    // 토큰 체크
-    const token = getToken();
-    if( token !== null) {
-        location.assign('/');
-        return;
-    }
+  // 토큰 체크
+  const token = getToken();
+  if (token !== null) {
+    location.assign('/');
+    return;
+  }
 }
 
-document.addEventListener("DOMContentLoaded", main);
+document.addEventListener('DOMContentLoaded', main);
