@@ -2,6 +2,7 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/01_study/fastcampus/project_나의책관리하기/fc-js-project" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/03_reference" vcs="Git" />
   </component>
 </project>
