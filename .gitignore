@@ -1,4 +1,7 @@
 .idea
+.idea/*
+.idea/vcs.xml
 node_modules
 fc-js-project
 vcs.xml
+/01_study/fastcampus/project_나의책관리하기/node_modules/
