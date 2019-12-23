@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Interative Web</title>
+    <link rel="stylesheet" href="./assets/css/reset.css">
+    <style>
+        .ilbuni {
+            width: 100px;
+        }
+        .ilbuni img {
+            width: 100%;
+        }
+        .special {
+            border: 10px dashed red;
+        }
+    </style>
+</head>
+<body>
+    <div class="characters">
+        <div class="ilbuni a"><img src="./assets/image/ilbuni_0.png" alt=""></div>
+        <div class="ilbuni b"><img src="./assets/image/ilbuni_1.png" alt=""></div>
+        <div class="ilbuni c"><img src="./assets/image/ilbuni_2.png" alt=""></div>
+    </div>
+    <div class="ilbuni d"><img src="./assets/image/ilbuni_3.png" alt=""></div>
+
+
+    <script type="text/javascript">
+
+        /* DOM 접근 기본 : [S] */
+        const ilbuni = document.querySelector('.a');
+        const ilbuniGroup = document.querySelectorAll('.ilbuni');
+
+        const ilbuniB = document.querySelector(".characters .ilbuni:nth-child(2)");
+        const ilbuniC = ilbuniGroup[2];
+
+        const char = document.querySelector('.characters');
+        char.setAttribute('data-id', 123); // attribute 추가
+        char.getAttribute('data-id');// attribute 값 얻기
+
+        /* DOM 접근 기본 : [E] */
+
+        /* DOM 추가 삭제 하기 : [S] */
+        const pElem = document.createElement('p');
+        pElem.innerHTML = '<a href="#href">안녕</a>';
+
+        const charactersElem = document.querySelector('.characters');
+        charactersElem.appendChild(pElem); // 맨끝에 자식으로 붙이는 기능
+        //charactersElem.removeChild(document.querySelector('.b'));()들어오는 요소 삭제
+        /* DOM 추가 삭제 하기 : [E] */
+
+
+        /* DOM Class 제어 : [S] */
+        const ilbuniA = document.querySelector(".a");
+        ilbuniA.classList.add('special');
+        // ilbuniA.className = 'special'; > 이렇게도 class를 넣을 수 있는데 기존에 있던 class 까지 다삭제해버림
+
+        const ilbuniD = document.querySelector('.d');
+        ilbuniD.classList.remove('ilbuni');
+        ilbuniD.classList.toggle('ilbuni');
+        /* DOM Class 제어 : [E] */
+
+
+
+    </script>
+</body>
+</html>
