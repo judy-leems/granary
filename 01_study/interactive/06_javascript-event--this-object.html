@@ -5,8 +5,16 @@
     <title>Interative Web</title>
     <link rel="stylesheet" href="./assets/css/reset.css">
     <style>
+        .characters {
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            background: #fff000;
+        }
         .ilbuni {
+            display: inline-block;
             width: 100px;
+            cursor: pointer;
         }
         .ilbuni img {
             width: 100%;
@@ -21,18 +29,19 @@
         <div class="ilbuni a"><img src="./assets/image/ilbuni_0.png" alt=""></div>
         <div class="ilbuni b"><img src="./assets/image/ilbuni_1.png" alt=""></div>
         <div class="ilbuni c"><img src="./assets/image/ilbuni_2.png" alt=""></div>
+        <div class="ilbuni d"><img src="./assets/image/ilbuni_3.png" alt=""></div>
     </div>
-    <div class="ilbuni d"><img src="./assets/image/ilbuni_3.png" alt=""></div>
-
-
     <script type="text/javascript">
 
-        /* 이벤트 기본 : [S] */
-        const ilbuniC = document.querySelector('.c');
-        ilbuniC.addEventListener("click", function() {});
-        /* 이벤트 기본 : [E] */
-
-
+        (function () {
+            const characters = document.querySelector('.characters');
+            function clickHandler(e) {
+                //console.log(this);
+                //console.log(e.currentTarget);
+                console.log(e.target);
+            }
+            characters.addEventListener("click", clickHandler);
+        })();
 
     </script>
 </body>

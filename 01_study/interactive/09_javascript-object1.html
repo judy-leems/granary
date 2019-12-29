@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Interative Web</title>
+    <link rel="stylesheet" href="./assets/css/reset.css">
+</head>
+<body>
+    <h1>Object</h1>
+    <script type="text/javascript">
+
+        /*
+        const person = {};
+        // 속성, property
+        person.name = '일분이';
+        person.age = 10;
+
+        // 메소드, method
+        person.introduce= function() {
+            console.log('안녕하세요? 저는 일분이이고 나이는 10살이에요.');
+        }
+
+        person.introduce();
+        */
+
+        /*
+
+        const person1 = {
+            name: '일분이',
+            age: 10,
+            introduce: function() {
+                console.log(`안녕하세요? 저는 ${this.name}이고 나이는 ${this.age}살이에요.`);
+            }
+        }
+
+        const person2 = {
+            name: '이분이',
+            age: 8,
+            introduce: function() {
+                console.log(`안녕하세요? 저는 ${this.name}이고 나이는 ${this.age}살이에요.`);
+            }
+        }
+
+
+        person1.introduce();
+        person2.introduce();
+
+        */
+
+
+        // 생성자 함수 constructor > 객체를 생성해내는 함수는 처음에 대문자를 써준다.
+
+        function Person(name, age) {
+            this.name = name;
+            this.age = age;
+        }
+
+        Person.prototype.introduce = function() {
+            console.log('안녕하세요? 저는' + this.name + '이고 나이는'+ this.age +'살이에요.');
+        }
+
+        // 인스턴스 instance > 생성자 함수로 생성해낸 person1, person2를 인스턴스라고 한다.
+        const person1 = new Person('일분이', 10);
+        const person2 = new Person('이분이', 8);
+
+        person1.introduce();
+        person2.introduce();
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>

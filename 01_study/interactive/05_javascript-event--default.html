@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Interative Web</title>
+    <link rel="stylesheet" href="./assets/css/reset.css">
+    <style>
+        .ilbuni {
+            width: 100px;
+        }
+        .ilbuni img {
+            width: 100%;
+        }
+        .special {
+            border: 10px dashed red;
+        }
+    </style>
+</head>
+<body>
+    <div class="characters">
+        <div class="ilbuni a"><img src="./assets/image/ilbuni_0.png" alt=""></div>
+        <div class="ilbuni b"><img src="./assets/image/ilbuni_1.png" alt=""></div>
+        <div class="ilbuni c"><img src="./assets/image/ilbuni_2.png" alt=""></div>
+    </div>
+    <div class="ilbuni d"><img src="./assets/image/ilbuni_3.png" alt=""></div>
+
+
+    <script type="text/javascript">
+
+        /* 이벤트 기본 : [S] */
+        /*
+        const ilbuniC = document.querySelector('.c');
+        ilbuniC.addEventListener("click", function() {
+            ilbuniC.classList.toggle("special");
+        });
+        */
+        // 전역 변수는 최대한 피하는게 좋음 다른 사람이 사용하여 충돌이 일어날수도 있으니까 최대한 함수안에서 선언하는것이 좋다!
+
+        (function () {
+            const ilbuni = document.querySelector('.c');
+            const clickIlbuniHandler = () => {
+                ilbuni.classList.toggle("special");
+            }
+            ilbuni.addEventListener("click", clickIlbuniHandler);
+        })(); // 함수뒤에 () 붙이면(호출연산자) 바로 호출 가능
+
+        /* 이벤트 기본 : [E] */
+    </script>
+</body>
+</html>

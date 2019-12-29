@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Interative Web</title>
+    <link rel="stylesheet" href="./assets/css/reset.css">
+    <style>
+        .menu {
+            display: flex;
+            justify-content: space-around;
+        }
+        .menu-btn {
+            border: 0;
+            background: transparent;
+            padding: 0;
+            margin: 0;
+        }
+        .icon {
+            height: 100px;
+            /* pointer-events: none; 포인트 이벤트를 안받아 와서 클릭이 안된다? */
+        }
+        .btn-label {
+            display: block;
+            margin-top: 20px;
+            text-align: center;
+            font-size: 20px;
+            /* pointer-events: none; 포인트 이벤트를 안받아 와서 클릭이 안된다? */
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class="menu">
+        <!--
+        <button class="menu-btn" data-value="1">
+            <img src="./assets/image/ilbuni_0.png" class="icon">
+            <span class="btn-label">일분이 1</span>
+        </button>
+        <button class="menu-btn" data-value="2">
+            <img src="./assets/image/ilbuni_1.png" class="icon">
+            <span class="btn-label">일분이 2</span>
+        </button>
+        <button class="menu-btn" data-value="3">
+            <img src="./assets/image/ilbuni_2.png" class="icon">
+            <span class="btn-label">일분이 3</span>
+        </button>
+        <button class="menu-btn" data-value="4">
+            <img src="./assets/image/ilbuni_3.png" class="icon">
+            <span class="btn-label">일분이 4</span>
+        </button>
+        -->
+    </div>
+    <script type="text/javascript">
+        (function(){
+            const menu = document.querySelector(".menu");
+            function clickBtnHandler(event) {
+
+                //console.log(event.target.getAttribute('data-value'));
+                //console.log(event.target.dataset.value);
+
+                let elem = event.target;
+                while (!elem.classList.contains('menu-btn')) {
+                    elem = elem.parentNode;
+                    if(elem.nodeName == 'BODY') {
+                        elem = null;
+                        return;
+                    }
+
+                }
+
+                console.log(elem);
+
+            }
+            menu.addEventListener("click", clickBtnHandler);
+            window.addEventListener('click', () => {
+                const htmlStr = `
+                    <button class="menu-btn" data-value="1">
+                        <img src="./assets/image/ilbuni_0.png" class="icon">
+                        <span class="btn-label">일분이 1</span>
+                    </button>
+                    <button class="menu-btn" data-value="2">
+                        <img src="./assets/image/ilbuni_1.png" class="icon">
+                        <span class="btn-label">일분이 2</span>
+                    </button>
+                    <button class="menu-btn" data-value="3">
+                        <img src="./assets/image/ilbuni_2.png" class="icon">
+                        <span class="btn-label">일분이 3</span>
+                    </button>
+                    <button class="menu-btn" data-value="4">
+                        <img src="./assets/image/ilbuni_3.png" class="icon">
+                        <span class="btn-label">일분이 4</span>
+                    </button>
+                `
+                menu.innerHTML = htmlStr;
+            });
+
+
+
+        })();
+    </script>
+</body>
+</html>

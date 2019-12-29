@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Interative Web</title>
+    <link rel="stylesheet" href="./assets/css/reset.css">
+    <style>
+        .stage {
+            position: relative;
+            width: 100vw;
+            height: 75vw; /* vw를 사용하면 width의 viewport 값을 가져오기 때문에 width 기준으로 작업가능 */
+            background: #fff000;
+            overflow: hidden;
+        }
+        @keyframes moving {
+            from {
+                transform: translateX(0);
+            }
+            to {
+                transform: translateX(90vw);
+            }
+        }
+        .ilbuni {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background-repeat: no-repeat;
+            background-position: 50% 50%;
+            background-size: contain;
+            animation: moving infinite alternate linear;
+        }
+        .ilbuni:nth-of-type(1) {
+            left: 5%;
+            bottom: 5%;
+            background-image: url('./assets/image/ilbuni_0.png');
+            animation-duration: 2s;
+        }
+        .ilbuni:nth-of-type(2) {
+            left: 10%;
+            bottom: 3%;
+            background-image: url('./assets/image/ilbuni_1.png');
+            animation-duration: 3s;
+        }
+        .ilbuni:nth-of-type(3) {
+            left: 7%;
+            bottom: 10%;
+            background-image: url('./assets/image/ilbuni_2.png');
+            animation-duration: 4s;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="stage">
+        <div class="ilbuni a"></div>
+        <div class="ilbuni b"></div>
+        <div class="ilbuni c"></div>
+        <div class="ilbuni d"></div>
+    </div>
+    <script type="text/javascript">
+        (function(){
+
+            /*
+
+            const ilbuniGroup = document.querySelectorAll(".ilbuni");
+            const stage = document.querySelector(".stage");
+
+            function clickHandler(e) {
+                //console.log(this);
+                //console.log(e.currentTarget);
+
+                //this.parentNode.removeChild(this);
+                stage.removeChild(this);
+
+            }
+            for( let i = 0; i < ilbuniGroup.length; i++) {
+                ilbuniGroup[i].addEventListener('click', clickHandler);
+            }
+
+            */
+
+            /* 이벤트 위임 */
+
+
+            const stage = document.querySelector(".stage");
+            function clickHandler(e) {
+                 // console.log(e.target);
+                 // console.log(e.currentTarget);
+
+                if(e.target.classList.contains('ilbuni')) {
+                    stage.removeChild(e.target);
+                }
+            }
+            stage.addEventListener('click', clickHandler);
+
+
+
+        })();
+    </script>
+</body>
+</html>
