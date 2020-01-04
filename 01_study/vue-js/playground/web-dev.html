@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+      
+    </div>
+    <script>
+        var div = document.querySelector('#app');
+        var str = 'hello world';
+        div.innerHTML = str;
+        str = 'hello world!!!!!' // 변수의 값이 변하지 않는다. 
+        div.innerHTML = str; // 바뀐 변수의 값을 적용하려면 다시 선언해줘야 하는데 vue.js의 reactivity 를 이용하여 다시 선언하지 않고 변수의 값을 할당할 수 있다. 
+
+    </script>
+</body>
+</html>
