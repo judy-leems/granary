@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Interative Web</title>
+    <link rel="stylesheet" href="./assets/css/reset.css">
+    <style>
+        .ball {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: red;
+            transition: 1s;
+            /* margin: -15px 0 0 -15px; */
+        }
+        .ball.end {
+            background: dodgerblue;
+        }
+    </style>
+</head>
+<body>
+    <div class="ball"></div>
+
+    <script type="text/javascript">
+        const ballElem = document.querySelector('.ball');
+        window.addEventListener('click', function (e) {
+            console.log(e.clientX, e.clientY);
+
+            ballElem.style.transform = 'translate(' + (e.clientX - 15) + 'px,' + (e.clientY - 15) + 'px)';
+            // 15 넣는 이유는 마우스 커서에 가운데 정렬 하려고! 총 크기에서 뺴준값임
+
+            ballElem.addEventListener('transitionend', function(e){ // transitionstart, transitionend 둘다 있는데  transitionend 를 더 많이 사용함.
+                ballElem.classList.add('end');
+                console.log(e.elapsedTime); // transition 시간
+                console.log(e.propertyName); // 바뀌는 속성
+            });
+
+        });
+    </script>
+</body>
+</html>

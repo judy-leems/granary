@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Interative Web</title>
+    <link rel="stylesheet" href="./assets/css/reset.css">
+    <style>
+        .content {
+            height: 1000vh;
+            background: #1c7430;
+            padding: 20%;
+        }
+        .output {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 100%;
+            font-size: 2rem;
+            font-weight: 200;
+            padding: 1rem;
+            background: rgba(0, 0, 0, .5);
+            color: #fff;
+        }
+        .ilbuni {
+            width: 100px;
+            margin: 20px auto;
+            transition: 1s;
+        }
+        .ilbuni img {
+            width: 100%;
+        }
+        .ilbuni.zoom {
+            transform: scale(2);
+        }
+
+    </style>
+</head>
+<body>
+    <div class="content">
+        <div class="output">
+            0
+        </div>
+        <div>
+            <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</p>
+        </div>
+        <div class="ilbuni">
+            <img src="./assets/image/ilbuni_0.png" alt="">
+        </div>
+    </div>
+    
+    
+    <script type="text/javascript">
+        (function(){
+            const outputElem = document.querySelector('.output');
+            const ilbuniElem = document.querySelector('.ilbuni');
+            function showValue() {
+
+                //outputElem.innerHTML = window.pageYOffset;
+                //outputElem.innerHTML = ilbuniElem.offsetTop;
+                //outputElem.innerHTML = ilbuniElem.getBoundingClientRect().top;
+
+                let posY = ilbuniElem.getBoundingClientRect().top;
+                outputElem.innerHTML = posY;
+
+                if(posY < window.innerHeight * 0.2) {
+                    ilbuniElem.classList.add('zoom');
+                } else {
+                    ilbuniElem.classList.remove('zoom');
+                }
+
+
+            }
+            window.addEventListener("scroll", function(){
+                showValue();
+            });
+        })();
+    </script>
+</body>
+</html>
