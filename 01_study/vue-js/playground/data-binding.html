@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    {{ str }}
+    <p v-bind:id="uuid" v-bind:class="name">{{ num }}</p>
+    <p>{{ doubleNum }}</p>
+    <div v-if="loading">
+      Loading...
+    </div>
+    <div v-else>
+      test user has been logged in
+    </div>
+    <div v-show="loading"> <!-- if는 아예 dom을 제거 하는데 show는 css display:none이 나옴 -->
+      Loading...
+    </div>
+    <!-- TODO: 인풋 박스를 만들고 입력된 값을 p 태그에 출력해보세요 -->
+    <input type="text" v-model="message" placeholder="입력하시오">
+    <p>message is : {{ message }}</p>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script>
+    new Vue({
+      el: "#app",
+      data: {
+        str: 'hi',
+        num: 10,
+        uuid: 'abc1234',
+        name: 'text-blue',
+        loading: true,
+        message: ''
+      }, 
+      computed: {
+        doubleNum: function() {
+          return this.num * 2;
+        }
+      }
+    })  
+  </script>
+</body>
+</html>
