@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>TABMENU</title>
+	<style type="text/css">
+		* {
+			padding: 0;
+			margin: 0;
+		}
+		.tab {
+			width: 600px;
+			margin: 100px auto;
+		}
+		.tab__menu-itembox {
+			font-size: 0;
+		}
+		.tab__menu-item {
+			display: inline-block;
+
+		}
+		.tab__menu-anchor {
+			display: block;
+			padding: 10px;
+			font-size: 14px;
+			background: transparent;
+		}
+		.tab__menu-anchor.is-selected {
+			background: #eee;
+		}
+		.tab__panel {
+			display: none;
+			padding: 20px;
+			border: 1px solid #eee;
+		}
+		.tab__panel.is-selected {
+			display: block;
+		}
+		.tab__panel a {
+			display: block;
+			font-size: 16px;
+		}
+	</style>
+</head>
+<body>
+	<div class="tab">
+		<div class="tab__menu">
+			<ul class="tab__menu-itembox" role="tablist" aria-label="탭메뉴 제목">
+				<li class="tab__menu-item">
+					<button id="tab-menu1" class="tab__menu-anchor is-selected" role="tab" tabindex="0" aria-controls="tab-panel1" aria-selected="true">tab menu 1</button>
+				</li>
+				<li class="tab__menu-item">
+					<button id="tab-menu2" class="tab__menu-anchor" role="tab" tabindex="-1" aria-controls="tab-panel2" aria-selected="false">tab menu 2</button>
+				</li>
+				<li class="tab__menu-item">
+					<button id="tab-menu3" class="tab__menu-anchor" role="tab" tabindex="-1" aria-controls="tab-panel3" aria-selected="false">tab menu 3</button>
+				</li>
+			</ul>
+		</div>
+		<!-- tab__menu//end -->
+		<div id="tab-panel1" class="tab__panel is-selected" role="tabpanel" tabindex="0" aria-labelledby="tab-menu1" aria-hidden="false">
+			tab-panel1
+			<a href="#list1">list1</a>
+			<a href="#list1">list2</a>
+			<a href="#list1">list3</a>
+		</div>
+		<!-- tab__contents//end -->
+		<div id="tab-panel2" class="tab__panel" role="tabpanel" tabindex="0" aria-labelledby="tab-menu2" aria-hidden="true">
+			tab-panel2
+		</div>
+		<!-- tab__contents//end -->
+		<div id="tab-panel3" class="tab__panel" role="tabpanel" tabindex="0" aria-labelledby="tab-menu3" aria-hidden="true">
+			tab-panel3
+		</div>
+		<!-- tab__contents//end -->
+	</div>
+	<!-- tab//end -->
+
+	<script type="text/javascript">
+		(function(){
+			var tabList = document.querySelector('[role="tablist"]');
+			var tabs = document.querySelectorAll('[role="tab"]');
+			var panels = document.querySelectorAll('[role="tabpanel"]');
+			function tabMenu(tabClickEvent) {
+				for(var t = 0; t < tabs.length; t++) {
+					tabs[t].classList.remove('is-selected');
+					tabs[t].setAttribute('tabindex', -1);
+					tabs[t].setAttribute('aria-selected', false);
+				}
+				var clickedTab = tabClickEvent.currentTarget;
+				clickedTab.classList.add('is-selected');
+				clickedTab.setAttribute('tabindex', 0);
+				clickedTab.setAttribute('aria-selected', true);
+				tabClickEvent.preventDefault();
+
+				for(var p = 0; p < panels.length; p++) {
+					panels[p].classList.remove('is-selected');
+					panels[p].setAttribute('aria-hidden', true);
+				}
+				var panelElement = clickedTab.getAttribute('aria-controls');
+				document.getElementById(panelElement).setAttribute('aria-hidden', false);
+				document.getElementById(panelElement).classList.add('is-selected');
+			}
+			for(var i =0; i < tabs.length; i++) {
+				tabs[i].addEventListener("click", tabMenu);
+			}
+
+			var tabFocus = 0;
+			tabList.addEventListener("keydown", function(e) {
+				if (e.keyCode === 39 || e.keyCode === 37) {
+					tabs[tabFocus].setAttribute("tabindex", -1);
+					if (e.keyCode === 39) {
+						tabFocus++;
+						if (tabFocus >= tabs.length) {
+							tabFocus = 0;
+						}
+					} else if (e.keyCode === 37) {
+						tabFocus--;
+						if (tabFocus < 0) {
+							tabFocus = tabs.length - 1;
+						}
+					}
+					tabs[tabFocus].setAttribute("tabindex", 0);
+					tabs[tabFocus].focus();
+				}
+			});
+
+
+		})();
+	</script>
+</body>
+</html>
