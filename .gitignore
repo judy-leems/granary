@@ -2,9 +2,14 @@
 .idea/*
 .idea/vcs.xml
 node_modules
+node_modules/*
+*node_modules
+*bin
 fc-js-project
 vcs.xml
 03_reference/bottom_floating/
 03_reference/slick/
 03_reference/swiper/
-01_study/fastcampus/project_나의책관리하기/node_modules/
+01_study/javascript/project_나의책관리하기/node_modules/
+01_study/webpack/03_module/node_modules/
+01_study/vue-js/vue-cli/node_modules/
