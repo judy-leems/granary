@@ -58,18 +58,18 @@
 			</ul>
 		</div>
 		<!-- tab__menu//end -->
-		<div id="tab-panel1" class="tab__panel is-selected" role="tabpanel" tabindex="0" aria-labelledby="tab-menu1" aria-hidden="false">
+		<div id="tab-panel1" class="tab__panel is-selected" role="tabpanel" tabindex="0" aria-labelledby="tab-menu1" aria-expanded="false">
 			tab-panel1
 			<a href="#list1">list1</a>
 			<a href="#list1">list2</a>
 			<a href="#list1">list3</a>
 		</div>
 		<!-- tab__contents//end -->
-		<div id="tab-panel2" class="tab__panel" role="tabpanel" tabindex="0" aria-labelledby="tab-menu2" aria-hidden="true">
+		<div id="tab-panel2" class="tab__panel" role="tabpanel" tabindex="0" aria-labelledby="tab-menu2" aria-expanded="true">
 			tab-panel2
 		</div>
 		<!-- tab__contents//end -->
-		<div id="tab-panel3" class="tab__panel" role="tabpanel" tabindex="0" aria-labelledby="tab-menu3" aria-hidden="true">
+		<div id="tab-panel3" class="tab__panel" role="tabpanel" tabindex="0" aria-labelledby="tab-menu3" aria-expanded="true">
 			tab-panel3
 		</div>
 		<!-- tab__contents//end -->
@@ -95,10 +95,10 @@
 
 				for(var p = 0; p < panels.length; p++) {
 					panels[p].classList.remove('is-selected');
-					panels[p].setAttribute('aria-hidden', true);
+					panels[p].setAttribute('aria-expanded', true);
 				}
 				var panelElement = clickedTab.getAttribute('aria-controls');
-				document.getElementById(panelElement).setAttribute('aria-hidden', false);
+				document.getElementById(panelElement).setAttribute('aria-expanded', false);
 				document.getElementById(panelElement).classList.add('is-selected');
 			}
 			for(var i =0; i < tabs.length; i++) {
