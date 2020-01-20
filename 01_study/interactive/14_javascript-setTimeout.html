@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Interative Web</title>
+	<link rel="stylesheet" href="./assets/css/reset.css">
+	<style>
+		.btn {
+			font-size: 2em;
+		}
+	</style>
+</head>
+<body>
+	<button class="btn">취소</button>
+	<script type="text/javascript">
+		let timeId;
+		const btn = document.querySelector('btn');
+		function sample() {
+		    console.log('sample');
+		}
+		timeId = setTimeout(sample, 3000);
+		btn.addEventListener('click', function () {
+        clearTimeout(timeId);
+		})
+	</script>
+</body>
+</html>

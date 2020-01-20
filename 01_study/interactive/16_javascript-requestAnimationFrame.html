@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Interative Web</title>
+	<link rel="stylesheet" href="./assets/css/reset.css">
+	<style>
+		.btn {
+			font-size: 2em;
+		}
+	</style>
+</head>
+<body>
+	<button class="btn">취소</button>
+	<script type="text/javascript">
+		// setInterval > 어떤값을 갱신할 떄 많이씀 하지만 버벅거릴 위험이 있음
+		// let timeId;
+		// const btn = document.querySelector('.btn');
+		// function sample() {
+		//     console.log('sample!');
+		//     timeId = requestAnimationFrame(sample);
+		// }
+		// sample();
+		// btn.addEventListener('click', function() {
+		//     cancelAnimationFrame(timeId);
+		// });
+
+    let timeId;
+    let n = 0;
+    const btn = document.querySelector('.btn');
+    function sample() {
+        n++;
+        console.log(n);
+        if( n > 200 ) {
+            return;
+				}
+        timeId = requestAnimationFrame(sample);
+    }
+		sample();
+    btn.addEventListener('click', function() {
+        cancelAnimationFrame(timeId);
+    });
+	</script>
+</body>
+</html>

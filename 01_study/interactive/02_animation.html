@@ -1,51 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Interative Web</title>
-    <link rel="stylesheet" href="./assets/css/reset.css">
-    <style>
-        .box-container {
-            display: flex;
-        }
-        .box {
-            width: 100px;
-            height: 100px;
-            background: rgba(255,255,0,.7);
-            border: 2px solid #000;
-            box-sizing: border-box;
-        }
-        .box:hover {
-            /*transform: scale(2) rotate(45deg);*/
-            /*transform: skewY(30deg);*/
-            /*transform: translate(30px, 10px);*/
-            transform: scale(1.25);
-            transform-origin: right bottom;
-            transfomr-origin: 0% 0%;
-            transition: transform .5s ease-in-out;
-        }
-    </style>
+	<meta charset="UTF-8">
+	<title>Interative Web</title>
+	<link rel="stylesheet" href="./assets/css/reset.css">
+	<style type="text/css">
+		@keyframes sample-ani {
+			0% {
+				transform: translate(0, 0);
+			}
+			50% {
+				transform: translate(300px, 0);
+			}
+			100% {
+				transform: translate(400px, 500px);
+			}
+		}
+		.box {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			width: 100px;
+			height: 100px;
+			border: 2px solid #000;
+			background: #fff000;
+			animation: sample-ani 2s linear infinite alternate;
+		}
+		.box:hover {
+			animation-play-state: paused;
+		}
+
+		@keyframes spaceship-ani {
+			100% {
+				background-position: -2550px 0;
+			}
+		}
+		.spaceship {
+			width: 150px;
+			height: 150px;
+			background: url('./assets/image/sprite_spaceship.png') no-repeat 0 0 / auto 150px;
+			animation: spaceship-ani 1s infinite steps(17);
+		}
+
+	</style>
 </head>
 <body>
-    <h1>CSS Transform</h1>
-    <p>
-        position: absolute left top, 값을 이용하여 이동하는것보다<br>
-        transform 속성을 이용하여 translate 값으로 이동하는게 속도가 훨씬빠름.<br>
-        이유는 하드웨어 가속도를 이용해서 거의 네이티브 앱 수준으로 속도가 빠름.
-    </p>
-    <hr>
-
-
-    <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32</p>
-    <div class="box-container">
-        <div class="box">A</div>
-        <div class="box">B</div>
-        <div class="box">C</div>
-        <div class="box">D</div>
-        <div class="box">E</div>
-    </div>
-    <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.</p>
-
-
+	<h1>Animation</h1>
+	<div class="box">BOX</div>
+	<div class="spaceship"></div>
 </body>
 </html>
