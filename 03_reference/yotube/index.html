@@ -3,8 +3,102 @@
 <head>
 	<meta charset="UTF-8">
 	<title>YOUTUBE</title>
+	<link rel="stylesheet" href="./assets/css/swiper.min.css">
+	<style>
+		body {
+			background: #fff;
+			font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+			font-size: 14px;
+			color:#000;
+			margin: 0;
+			padding: 0;
+		}
+		.swiper-container {
+			width: 1000px;
+			margin: 0 auto;
+			padding-top: 50px;
+			padding-bottom: 50px;
+		}
+		.swiper-slide {
+			background-position: center;
+			background-size: cover;
+			width: 300px;
+			height: 300px;
+
+		}
+	</style>
 </head>
 <body>
+	<!-- Swiper -->
+	<div class="swiper-container">
+		<div class="swiper-wrapper">
+			<div class="swiper-slide" style="background-image:url(./assets/images/nature-1.jpg)">
+				<div class="iframe" style="display: none;">
+					<iframe width="560" height="315" src="https://www.youtube.com/embed/6UEtC5ML33I" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+				</div>
+			</div>
+			<div class="swiper-slide" style="background-image:url(./assets/images/nature-2.jpg)">
+				<div class="iframe" style="display: none;">
+					<iframe width="560" height="315" src="https://www.youtube.com/embed/Gg6b6VUIW80" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+				</div>
+			</div>
+			<div class="swiper-slide" style="background-image:url(./assets/images/nature-3.jpg)">
+				<div class="iframe" style="display: none;">
+					<iframe width="560" height="315" src="https://www.youtube.com/embed/Z7yNvMzz2zg" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+				</div>
+			</div>
+			<div class="swiper-slide" style="background-image:url(./assets/images/nature-4.jpg)">
+				<div class="iframe" style="display: none;">
+					<iframe width="560" height="315" src="https://www.youtube.com/embed/UdyjeUwPz_E" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+				</div>
+			</div>
+			<div class="swiper-slide" style="background-image:url(./assets/images/nature-5.jpg)">
+				<div class="iframe" style="display: none;">
+					<iframe width="560" height="315" src="https://www.youtube.com/embed/1V5_5g5g4I4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+				</div>
+			</div>
+		</div>
+		<!-- Add Pagination -->
+		<div class="swiper-pagination"></div>
+	</div>
 
+	<!-- Swiper JS -->
+	<script src="./assets/js/swiper.min.js"></script>
+
+	<!-- Initialize Swiper -->
+	<script>
+			var swiper = new Swiper('.swiper-container', {
+					effect: 'coverflow',
+					grabCursor: true,
+					slidesPerView: 2,
+					centeredSlides: true,
+					loop: true,
+					coverflowEffect: {
+							rotate: 0,
+							stretch: 0,
+							depth: 300,
+							modifier: 1,
+							slideShadows : true,
+					},
+					pagination: {
+							el: '.swiper-pagination',
+					},
+			});
+
+
+
+			var swiperSlide = document.querySelectorAll('.swiper-slide');
+			for(var i = 0; i < swiperSlide.length; i++) {
+          swiperSlide[i].addEventListener('click', function() {
+						var targetClass= this.classList.contains('swiper-slide-active');
+						if(targetClass) {
+								alert("현재!");
+						}
+					});
+			}
+
+
+
+	</script>
 </body>
 </html>
