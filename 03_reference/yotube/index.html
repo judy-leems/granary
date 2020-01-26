@@ -20,53 +20,271 @@
 			padding-bottom: 50px;
 		}
 		.swiper-slide {
+			position: relative;
 			background-position: center;
 			background-size: cover;
-			width: 300px;
-			height: 300px;
-
+			width: 560px;
+			height: 315px;
+			overflow: hidden;
 		}
+
+		
+
+		.video-preload {
+			display: none;
+		}
+		.swiper-slide-prev .video-preload,
+		.swiper-slide-next .video-preload {
+			display: block;
+		}
+		.swiper-slide-prev .video-title__step:before {
+			content: "PREV";
+		}
+		.swiper-slide-next .video-title__step:before {
+			content: "NEXT";
+		}
+		.swiper-slide-prev .video-present,
+		.swiper-slide-next .video-present {
+			display: none;
+		}
+		
+		.video-title {
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			width: 100%;
+			height: 100%;
+			z-index: 20;
+			-webkit-transform: translate(-50%, -50%);
+			-moz-transform: translate(-50%, -50%);
+			-ms-transform: translate(-50%, -50%);
+			-o-transform: translate(-50%, -50%);
+			transform: translate(-50%, -50%);
+		}
+		.video-title__step {
+			font-size: 20px;
+			color: #ff7200;
+			text-align: center;
+		}
+		.video-title__description {
+			font-size: 15px;
+			color: #005cbf;
+			text-align: center;
+		}
+		.video-preload .video-image:before {
+			content: "";
+			position: absolute;
+			left: 0;
+			top: 0;
+			width: 100%;
+			height: 100%;
+			background: rgba(255, 255, 255, .5);
+		}
+		.video-image {
+			position: absolute;
+			left: 0;
+			top: 0;
+			width: 100%;
+			height: 100%;
+			z-index: 10;
+		}
+		.video-image__thumbnail img {
+			display: block;
+			width: 100%;
+		}
+		
 	</style>
 </head>
 <body>
 	<!-- Swiper -->
 	<div class="swiper-container">
 		<div class="swiper-wrapper">
-			<div class="swiper-slide" style="background-image:url(./assets/images/nature-1.jpg)">
-				<div class="iframe" style="display: none;">
-					<iframe width="560" height="315" src="https://www.youtube.com/embed/6UEtC5ML33I" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+			<div class="swiper-slide">
+				<div class="video-present">
+					<div class="video-image">
+						<div class="video-image__thumbnail">
+							<img src="./assets/images/nature-1.jpg" alt="">
+						</div>
+					</div>
+					<!-- video-image//end -->
+					<div class="video-player">
+						<div class="iframe">
+							<iframe width="560" height="315" src="https://www.youtube.com/embed/6UEtC5ML33I" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+						</div>
+						<!-- video-player__iframe//end -->
+					</div>
+					<!-- video-player//end -->
 				</div>
-			</div>
-			<div class="swiper-slide" style="background-image:url(./assets/images/nature-2.jpg)">
-				<div class="iframe" style="display: none;">
-					<iframe width="560" height="315" src="https://www.youtube.com/embed/Gg6b6VUIW80" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+				<!-- video-present//end -->
+				<div class="video-preload">
+					<div class="video-title">
+						<p class="video-title__step"></p>
+						<p class="video-title__description">누나(NUNA) - 김재환((KIM JAEHWAN) [뮤직뱅크/Music Bank] 20200103</p>
+					</div>
+					<!-- video-title//end -->
+					<div class="video-image">
+						<div class="video-image__thumbnail">
+							<img src="./assets/images/nature-1.jpg" alt="">
+						</div>
+					</div>
+					<!-- video-image//end -->
 				</div>
+				<!-- video-preload//end -->
 			</div>
-			<div class="swiper-slide" style="background-image:url(./assets/images/nature-3.jpg)">
-				<div class="iframe" style="display: none;">
-					<iframe width="560" height="315" src="https://www.youtube.com/embed/Z7yNvMzz2zg" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+			<!-- swiper-slide//end -->
+			<div class="swiper-slide">
+				<div class="video-present">
+					<div class="video-image">
+						<div class="video-image__thumbnail">
+							<img src="./assets/images/nature-2.jpg" alt="">
+						</div>
+					</div>
+					<!-- video-image//end -->
+					<div class="video-player">
+						<div class="iframe">
+							<iframe width="560" height="315" src="https://www.youtube.com/embed/Gg6b6VUIW80" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+						</div>
+						<!-- video-player__iframe//end -->
+					</div>
+					<!-- video-player//end -->
 				</div>
-			</div>
-			<div class="swiper-slide" style="background-image:url(./assets/images/nature-4.jpg)">
-				<div class="iframe" style="display: none;">
-					<iframe width="560" height="315" src="https://www.youtube.com/embed/UdyjeUwPz_E" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+				<!-- video-present//end -->
+				<div class="video-preload">
+					<div class="video-title">
+						<p class="video-title__step"></p>
+						<p class="video-title__description">PRODUCE 101 season2 [단독/4회] ′여기는 완성형′ 이번 열차는 미안행~ㅣ슈퍼주니어 ♬Sorry, Sorry_2조 @그룹배틀 170428 EP.4</p>
+					</div>
+					<!-- video-title//end -->
+					<div class="video-image">
+						<div class="video-image__thumbnail">
+							<img src="./assets/images/nature-2.jpg" alt="">
+						</div>
+					</div>
+					<!-- video-image//end -->
 				</div>
+				<!-- video-preload//end -->
 			</div>
-			<div class="swiper-slide" style="background-image:url(./assets/images/nature-5.jpg)">
-				<div class="iframe" style="display: none;">
-					<iframe width="560" height="315" src="https://www.youtube.com/embed/1V5_5g5g4I4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+			<!-- swiper-slide//end -->
+			<div class="swiper-slide">
+				<div class="video-present">
+					<div class="video-image">
+						<div class="video-image__thumbnail">
+							<img src="./assets/images/nature-3.jpg" alt="">
+						</div>
+					</div>
+					<!-- video-image//end -->
+					<div class="video-player">
+						<div class="iframe">
+							<iframe width="560" height="315" src="https://www.youtube.com/embed/Z7yNvMzz2zg" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+						</div>
+						<!-- video-player__iframe//end -->
+					</div>
+					<!-- video-player//end -->
 				</div>
+				<!-- video-present//end -->
+				<div class="video-preload">
+					<div class="video-title">
+						<p class="video-title__step"></p>
+						<p class="video-title__description">Red Velvet 레드벨벳 'Psycho' Performance Video</p>
+					</div>
+					<!-- video-title//end -->
+					<div class="video-image">
+						<div class="video-image__thumbnail">
+							<img src="./assets/images/nature-3.jpg" alt="">
+						</div>
+					</div>
+					<!-- video-image//end -->
+				</div>
+				<!-- video-preload//end -->
 			</div>
+			<!-- swiper-slide//end -->
+			<div class="swiper-slide">
+				<div class="video-present">
+					<div class="video-image">
+						<div class="video-image__thumbnail">
+							<img src="./assets/images/nature-4.jpg" alt="">
+						</div>
+					</div>
+					<!-- video-image//end -->
+					<div class="video-player">
+						<div class="iframe">
+							<iframe width="560" height="315" src="https://www.youtube.com/embed/UdyjeUwPz_E" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+						</div>
+						<!-- video-player__iframe//end -->
+					</div>
+					<!-- video-player//end -->
+				</div>
+				<!-- video-present//end -->
+				<div class="video-preload">
+					<div class="video-title">
+						<p class="video-title__step"></p>
+						<p class="video-title__description">지코 (ZICO) - 아무노래 Official Music Video</p>
+					</div>
+					<!-- video-title//end -->
+					<div class="video-image">
+						<div class="video-image__thumbnail">
+							<img src="./assets/images/nature-4.jpg" alt="">
+						</div>
+					</div>
+					<!-- video-image//end -->
+				</div>
+				<!-- video-preload//end -->
+			</div>
+			<!-- swiper-slide//end -->
+			<div class="swiper-slide">
+				<div class="video-present">
+					<div class="video-image">
+						<div class="video-image__thumbnail">
+							<img src="./assets/images/nature-5.jpg" alt="">
+						</div>
+					</div>
+					<!-- video-image//end -->
+					<div class="video-player">
+						<div class="iframe">
+							<iframe width="560" height="315" src="https://www.youtube.com/embed/1V5_5g5g4I4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+						</div>
+						<!-- video-player__iframe//end -->
+					</div>
+					<!-- video-player//end -->
+				</div>
+				<!-- video-present//end -->
+				<div class="video-preload">
+					<div class="video-title">
+						<p class="video-title__step"></p>
+						<p class="video-title__description">[MV] ONG SEONG WU(옹성우) _ WE BELONG</p>
+					</div>
+					<!-- video-title//end -->
+					<div class="video-image">
+						<div class="video-image__thumbnail">
+							<img src="./assets/images/nature-5.jpg" alt="">
+						</div>
+					</div>
+					<!-- video-image//end -->
+				</div>
+				<!-- video-preload//end -->
+			</div>
+			<!-- swiper-slide//end -->
 		</div>
-		<!-- Add Pagination -->
-		<div class="swiper-pagination"></div>
 	</div>
 
 	<!-- Swiper JS -->
 	<script src="./assets/js/swiper.min.js"></script>
 
 	<!-- Initialize Swiper -->
+
+
 	<script>
+		// Load the IFrame Player API code asynchronously.
+		var tag = document.createElement('script');
+		tag.src = "https://www.youtube.com/player_api";
+		var firstScriptTag = document.getElementsByTagName('script')[0];
+		firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+	</script>
+
+
+
+	<script>
+
 			var swiper = new Swiper('.swiper-container', {
 					effect: 'coverflow',
 					grabCursor: true,
@@ -76,8 +294,8 @@
 					coverflowEffect: {
 							rotate: 0,
 							stretch: 0,
-							depth: 300,
-							modifier: 1,
+							depth: 200,
+							modifier: 3,
 							slideShadows : true,
 					},
 					pagination: {
@@ -92,7 +310,7 @@
           swiperSlide[i].addEventListener('click', function() {
 						var targetClass= this.classList.contains('swiper-slide-active');
 						if(targetClass) {
-								alert("현재!");
+								//alert("현재!");
 						}
 					});
 			}
@@ -100,5 +318,8 @@
 
 
 	</script>
+
+
+
 </body>
 </html>
