@@ -92,8 +92,32 @@
 			display: block;
 			width: 100%;
 		}
-		
-	</style>
+
+
+		.js-poster.is-selected {
+			display: none;
+		}
+		.video-present {
+			width: 560px;
+			height: 315px;
+		}
+    .video-player {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+			transform: translate(0);
+			/*
+			z-index: 30;
+      opacity: 0;
+      */
+    }
+    .video-player.is-selected {
+      /* opacity: 1; */
+    }
+
+  </style>
 </head>
 <body>
 	<!-- Swiper -->
@@ -101,16 +125,19 @@
 		<div class="swiper-wrapper">
 			<div class="swiper-slide">
 				<div class="video-present">
-					<div class="video-image">
+					<div class="video-image js-poster" onclick="videoplay1(event)">
 						<div class="video-image__thumbnail">
 							<img src="./assets/images/nature-1.jpg" alt="">
 						</div>
 					</div>
 					<!-- video-image//end -->
 					<div class="video-player">
+            <div id="player1" class="video-iframe"></div>
+            <!--
 						<div class="iframe">
 							<iframe width="560" height="315" src="https://www.youtube.com/embed/6UEtC5ML33I" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 						</div>
+						-->
 						<!-- video-player__iframe//end -->
 					</div>
 					<!-- video-player//end -->
@@ -134,16 +161,19 @@
 			<!-- swiper-slide//end -->
 			<div class="swiper-slide">
 				<div class="video-present">
-					<div class="video-image">
+					<div class="video-image js-poster" onclick="player2.playVideo();">
 						<div class="video-image__thumbnail">
 							<img src="./assets/images/nature-2.jpg" alt="">
 						</div>
 					</div>
 					<!-- video-image//end -->
 					<div class="video-player">
+            <div id="player2" class="video-iframe"></div>
+            <!--
 						<div class="iframe">
 							<iframe width="560" height="315" src="https://www.youtube.com/embed/Gg6b6VUIW80" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 						</div>
+						-->
 						<!-- video-player__iframe//end -->
 					</div>
 					<!-- video-player//end -->
@@ -167,16 +197,19 @@
 			<!-- swiper-slide//end -->
 			<div class="swiper-slide">
 				<div class="video-present">
-					<div class="video-image">
+					<div class="video-image js-poster" onclick="player3.playVideo();">
 						<div class="video-image__thumbnail">
 							<img src="./assets/images/nature-3.jpg" alt="">
 						</div>
 					</div>
 					<!-- video-image//end -->
 					<div class="video-player">
+						<div id="player3" class="video-iframe"></div>
+						<!--
 						<div class="iframe">
 							<iframe width="560" height="315" src="https://www.youtube.com/embed/Z7yNvMzz2zg" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 						</div>
+						-->
 						<!-- video-player__iframe//end -->
 					</div>
 					<!-- video-player//end -->
@@ -200,16 +233,19 @@
 			<!-- swiper-slide//end -->
 			<div class="swiper-slide">
 				<div class="video-present">
-					<div class="video-image">
+					<div class="video-image js-poster" onclick="player4.playVideo();">
 						<div class="video-image__thumbnail">
 							<img src="./assets/images/nature-4.jpg" alt="">
 						</div>
 					</div>
 					<!-- video-image//end -->
 					<div class="video-player">
+						<div id="player4" class="video-iframe"></div>
+						<!--
 						<div class="iframe">
 							<iframe width="560" height="315" src="https://www.youtube.com/embed/UdyjeUwPz_E" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 						</div>
+						-->
 						<!-- video-player__iframe//end -->
 					</div>
 					<!-- video-player//end -->
@@ -233,16 +269,19 @@
 			<!-- swiper-slide//end -->
 			<div class="swiper-slide">
 				<div class="video-present">
-					<div class="video-image">
+					<div class="video-image js-poster" onclick="player5.playVideo();">
 						<div class="video-image__thumbnail">
 							<img src="./assets/images/nature-5.jpg" alt="">
 						</div>
 					</div>
 					<!-- video-image//end -->
 					<div class="video-player">
+						<div id="player5" class="video-iframe"></div>
+						<!--
 						<div class="iframe">
 							<iframe width="560" height="315" src="https://www.youtube.com/embed/1V5_5g5g4I4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 						</div>
+						-->
 						<!-- video-player__iframe//end -->
 					</div>
 					<!-- video-player//end -->
@@ -265,57 +304,145 @@
 			</div>
 			<!-- swiper-slide//end -->
 		</div>
+    <!-- swiper-wrapper//end -->
 	</div>
+  <!-- swiper-container//end -->
 
 	<!-- Swiper JS -->
+	<script src="./assets/js/player_api.js"></script>
 	<script src="./assets/js/swiper.min.js"></script>
 
-	<!-- Initialize Swiper -->
+
+	<script type="text/javascript">
+		(function(){
+
+		})();
 
 
-	<script>
-		// Load the IFrame Player API code asynchronously.
-		var tag = document.createElement('script');
-		tag.src = "https://www.youtube.com/player_api";
-		var firstScriptTag = document.getElementsByTagName('script')[0];
-		firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-	</script>
+      var player1;
+      var player2;
+      var player3;
+      var player4;
+      var player5;
 
+		var swiperSlide = document.querySelectorAll('.swiper-slide');
+		var videoPoster = document.querySelectorAll('.js-poster');
 
-
-	<script>
-
-			var swiper = new Swiper('.swiper-container', {
-					effect: 'coverflow',
-					grabCursor: true,
-					slidesPerView: 2,
-					centeredSlides: true,
-					loop: true,
-					coverflowEffect: {
-							rotate: 0,
-							stretch: 0,
-							depth: 200,
-							modifier: 3,
-							slideShadows : true,
-					},
-					pagination: {
-							el: '.swiper-pagination',
-					},
-			});
-
-
-
-			var swiperSlide = document.querySelectorAll('.swiper-slide');
-			for(var i = 0; i < swiperSlide.length; i++) {
-          swiperSlide[i].addEventListener('click', function() {
-						var targetClass= this.classList.contains('swiper-slide-active');
-						if(targetClass) {
-								//alert("현재!");
+      function onYouTubeIframeAPIReady() {
+				player1 = new YT.Player('player1',{
+						height: '315',
+						width: '560',
+						videoId: '6UEtC5ML33I',
+						events: {
+								'onStateChange': onPlayerStateChange
 						}
-					});
+				});
+				player2 = new YT.Player('player2', {
+						height: '315',
+						width: '560',
+						videoId: 'Gg6b6VUIW80',
+						events: {
+							'onStateChange': onPlayerStateChange
+						}
+				});
+				player3 = new YT.Player('player3', {
+					height: '315',
+					width: '560',
+					videoId: 'Z7yNvMzz2zg',
+					events: {
+						'onStateChange': onPlayerStateChange
+					}
+				});
+				player4 = new YT.Player('player4', {
+					height: '315',
+					width: '560',
+					videoId: 'UdyjeUwPz_E',
+					events: {
+						'onStateChange': onPlayerStateChange
+					}
+				});
+				player5 = new YT.Player('player5', {
+					height: '315',
+					width: '560',
+					videoId: '1V5_5g5g4I4',
+					events: {
+						'onStateChange': onPlayerStateChange
+					}
+				});
+      }
+
+      function onPlayerStateChange(event) {
+				switch(event.data) {
+					case 0:
+							console.log("0 - 정지??");
+							for (var i = 0; i < videoPoster.length; i++) {
+								videoPoster[i].classList.remove('is-selected');
+							}
+							break;
+					case 1:
+						console.log("1 - 재생중");
+						event.target.mute();
+						setTimeout(function(){
+							event.target.unMute();
+						}, 500);
+							break;
+					case 2:
+						console.log("2 - 일시정지");
+
+						break;
+					default:
+						break;
+				}
+      }
+
+
+
+			for(var i = 0; i < swiperSlide.length; i++) {
+				swiperSlide[i].addEventListener('transitionend', function() {
+					player1.pauseVideo();
+					player2.pauseVideo();
+					player3.pauseVideo();
+					player4.pauseVideo();
+					player5.pauseVideo();
+
+					for (var i = 0; i < videoPoster.length; i++) {
+						videoPoster[i].classList.remove('is-selected');
+					}
+
+				});
+			}
+
+			for(var p = 0; p < videoPoster.length; p++) {
+				videoPoster[p].addEventListener('click', function(event) {
+					console.log(swiperSlide[p],videoPoster[p]);
+					this.classList.add('is-selected');
+				});
+
 			}
 
 
+			function videoplay1(event) {
+				player1.playVideo();
+			}
+
+
+		var swiper = new Swiper('.swiper-container', {
+			effect: 'coverflow',
+			grabCursor: false,
+			slidesPerView: 2,
+			centeredSlides: true,
+			loop: true,
+			coverflowEffect: {
+				rotate: 0,
+				stretch: 0,
+				depth: 200,
+				modifier: 3,
+				slideShadows : true,
+			},
+			pagination: {
+				el: '.swiper-pagination',
+			},
+		});
 
 	</script>
 
