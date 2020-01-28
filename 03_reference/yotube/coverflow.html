@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>YOUTUBE</title>
+	<link rel="stylesheet" href="./assets/css/jquery.flipster.css">
+	<style>
+		body {
+			background: #fff;
+			font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+			font-size: 14px;
+			color:#000;
+			margin: 0;
+			padding: 0;
+		}
+
+		
+
+		.video-preload {
+			display: none;
+		}
+		.swiper-slide-prev .video-preload,
+		.swiper-slide-next .video-preload {
+			display: block;
+		}
+		.swiper-slide-prev .video-title__step:before {
+			content: "PREV";
+		}
+		.swiper-slide-next .video-title__step:before {
+			content: "NEXT";
+		}
+		.swiper-slide-prev .video-present,
+		.swiper-slide-next .video-present {
+			display: none;
+		}
+		
+		.video-title {
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			width: 100%;
+			height: 100%;
+			z-index: 20;
+			-webkit-transform: translate(-50%, -50%);
+			-moz-transform: translate(-50%, -50%);
+			-ms-transform: translate(-50%, -50%);
+			-o-transform: translate(-50%, -50%);
+			transform: translate(-50%, -50%);
+		}
+		.video-title__step {
+			font-size: 20px;
+			color: #ff7200;
+			text-align: center;
+		}
+		.video-title__description {
+			font-size: 15px;
+			color: #005cbf;
+			text-align: center;
+		}
+		.video-preload .video-image:before {
+			content: "";
+			position: absolute;
+			left: 0;
+			top: 0;
+			width: 100%;
+			height: 100%;
+			background: rgba(255, 255, 255, .5);
+		}
+		.video-image {
+			position: absolute;
+			left: 0;
+			top: 0;
+			width: 100%;
+			height: 100%;
+			z-index: 10;
+		}
+		.video-image__thumbnail img {
+			display: block;
+			width: 100%;
+		}
+
+
+		.js-poster.is-selected {
+			display: none;
+		}
+		.video-present {
+			width: 560px;
+			height: 315px;
+		}
+    .video-player {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+			transform: translate(0);
+			/*
+			z-index: 30;
+      opacity: 0;
+      */
+    }
+    .video-player.is-selected {
+      /* opacity: 1; */
+    }
+
+  </style>
+</head>
+<body>
+	<!-- Swiper -->
+	<div class="swiper-container">
+		<div class="flipster">
+			<ul>
+				<li>
+					<div class="video-present">
+						<div class="video-image js-poster" onclick="videoplay1(event)">
+							<div class="video-image__thumbnail">
+								<img src="./assets/images/nature-1.jpg" alt="">
+							</div>
+						</div>
+						<!-- video-image//end -->
+						<div class="video-player">
+							<div id="player1" class="video-iframe"></div>
+							<!--
+              <div class="iframe">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/6UEtC5ML33I" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+              </div>
+              -->
+							<!-- video-player__iframe//end -->
+						</div>
+						<!-- video-player//end -->
+					</div>
+					<!-- video-present//end -->
+					<div class="video-preload">
+						<div class="video-title">
+							<p class="video-title__step"></p>
+							<p class="video-title__description">누나(NUNA) - 김재환((KIM JAEHWAN) [뮤직뱅크/Music Bank] 20200103</p>
+						</div>
+						<!-- video-title//end -->
+						<div class="video-image">
+							<div class="video-image__thumbnail">
+								<img src="./assets/images/nature-1.jpg" alt="">
+							</div>
+						</div>
+						<!-- video-image//end -->
+					</div>
+					<!-- video-preload//end -->
+				</li>
+				<li>
+					<div class="video-present">
+						<div class="video-image js-poster" onclick="player2.playVideo();">
+							<div class="video-image__thumbnail">
+								<img src="./assets/images/nature-2.jpg" alt="">
+							</div>
+						</div>
+						<!-- video-image//end -->
+						<div class="video-player">
+							<div id="player2" class="video-iframe"></div>
+							<!--
+              <div class="iframe">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/Gg6b6VUIW80" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+              </div>
+              -->
+							<!-- video-player__iframe//end -->
+						</div>
+						<!-- video-player//end -->
+					</div>
+					<!-- video-present//end -->
+					<div class="video-preload">
+						<div class="video-title">
+							<p class="video-title__step"></p>
+							<p class="video-title__description">PRODUCE 101 season2 [단독/4회] ′여기는 완성형′ 이번 열차는 미안행~ㅣ슈퍼주니어 ♬Sorry, Sorry_2조 @그룹배틀 170428 EP.4</p>
+						</div>
+						<!-- video-title//end -->
+						<div class="video-image">
+							<div class="video-image__thumbnail">
+								<img src="./assets/images/nature-2.jpg" alt="">
+							</div>
+						</div>
+						<!-- video-image//end -->
+					</div>
+					<!-- video-preload//end -->
+				</li>
+				<li>
+					<div class="video-present">
+						<div class="video-image js-poster" onclick="player3.playVideo();">
+							<div class="video-image__thumbnail">
+								<img src="./assets/images/nature-3.jpg" alt="">
+							</div>
+						</div>
+						<!-- video-image//end -->
+						<div class="video-player">
+							<div id="player3" class="video-iframe"></div>
+							<!--
+              <div class="iframe">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/Z7yNvMzz2zg" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+              </div>
+              -->
+							<!-- video-player__iframe//end -->
+						</div>
+						<!-- video-player//end -->
+					</div>
+					<!-- video-present//end -->
+					<div class="video-preload">
+						<div class="video-title">
+							<p class="video-title__step"></p>
+							<p class="video-title__description">Red Velvet 레드벨벳 'Psycho' Performance Video</p>
+						</div>
+						<!-- video-title//end -->
+						<div class="video-image">
+							<div class="video-image__thumbnail">
+								<img src="./assets/images/nature-3.jpg" alt="">
+							</div>
+						</div>
+						<!-- video-image//end -->
+					</div>
+					<!-- video-preload//end -->
+				</li>
+				<li>
+					<div class="video-present">
+						<div class="video-image js-poster" onclick="player4.playVideo();">
+							<div class="video-image__thumbnail">
+								<img src="./assets/images/nature-4.jpg" alt="">
+							</div>
+						</div>
+						<!-- video-image//end -->
+						<div class="video-player">
+							<div id="player4" class="video-iframe"></div>
+							<!--
+              <div class="iframe">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/UdyjeUwPz_E" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+              </div>
+              -->
+							<!-- video-player__iframe//end -->
+						</div>
+						<!-- video-player//end -->
+					</div>
+					<!-- video-present//end -->
+					<div class="video-preload">
+						<div class="video-title">
+							<p class="video-title__step"></p>
+							<p class="video-title__description">지코 (ZICO) - 아무노래 Official Music Video</p>
+						</div>
+						<!-- video-title//end -->
+						<div class="video-image">
+							<div class="video-image__thumbnail">
+								<img src="./assets/images/nature-4.jpg" alt="">
+							</div>
+						</div>
+						<!-- video-image//end -->
+					</div>
+					<!-- video-preload//end -->
+				</li>
+				<li>
+					<div class="video-present">
+						<div class="video-image js-poster" onclick="player5.playVideo();">
+							<div class="video-image__thumbnail">
+								<img src="./assets/images/nature-5.jpg" alt="">
+							</div>
+						</div>
+						<!-- video-image//end -->
+						<div class="video-player">
+							<div id="player5" class="video-iframe"></div>
+						</div>
+						<!-- video-player//end -->
+					</div>
+					<!-- video-present//end -->
+					<div class="video-preload">
+						<div class="video-title">
+							<p class="video-title__step"></p>
+							<p class="video-title__description">[MV] ONG SEONG WU(옹성우) _ WE BELONG</p>
+						</div>
+						<!-- video-title//end -->
+						<div class="video-image">
+							<div class="video-image__thumbnail">
+								<img src="./assets/images/nature-5.jpg" alt="">
+							</div>
+						</div>
+						<!-- video-image//end -->
+					</div>
+				</li>
+				<li>
+					<div class="video-present">
+						<div class="video-image js-poster" onclick="player6.playVideo();">
+							<div class="video-image__thumbnail">
+								<img src="./assets/images/nature-3.jpg" alt="">
+							</div>
+						</div>
+						<!-- video-image//end -->
+						<div class="video-player">
+							<div id="player6" class="video-iframe"></div>
+						</div>
+						<!-- video-player//end -->
+					</div>
+					<!-- video-present//end -->
+					<div class="video-preload">
+						<div class="video-title">
+							<p class="video-title__step"></p>
+							<p class="video-title__description">[MV] ONG SEONG WU(옹성우) _ WE BELONG</p>
+						</div>
+						<!-- video-title//end -->
+						<div class="video-image">
+							<div class="video-image__thumbnail">
+								<img src="./assets/images/nature-3.jpg" alt="">
+							</div>
+						</div>
+						<!-- video-image//end -->
+					</div>
+				</li>
+			</ul>
+
+
+	<script src="./assets/js/jquery.min.js"></script>
+	<script src="./assets/js/jquery.flipster.js"></script>
+	<script src="./assets/js/player_api.js"></script>
+
+
+
+	<script type="text/javascript">
+		$(function(){
+			$(".flipster").flipster({
+				style: 'carousel',
+				start: 0,
+				loop: 'true',
+
+			});
+		});
+
+
+
+
+		var player1;
+		var player2;
+		var player3;
+		var player4;
+		var player5;
+		var player6;
+
+		var videoPoster = document.querySelectorAll('.js-poster');
+
+
+		function onYouTubeIframeAPIReady() {
+			player1 = new YT.Player('player1',{
+				height: '315',
+				width: '560',
+				videoId: '6UEtC5ML33I',
+				events: {
+					'onStateChange': onPlayerStateChange
+				}
+			});
+			player2 = new YT.Player('player2', {
+				height: '315',
+				width: '560',
+				videoId: 'Gg6b6VUIW80',
+				events: {
+					'onStateChange': onPlayerStateChange
+				}
+			});
+			player3 = new YT.Player('player3', {
+				height: '315',
+				width: '560',
+				videoId: 'Z7yNvMzz2zg',
+				events: {
+					'onStateChange': onPlayerStateChange
+				}
+			});
+			player4 = new YT.Player('player4', {
+				height: '315',
+				width: '560',
+				videoId: 'UdyjeUwPz_E',
+				events: {
+					'onStateChange': onPlayerStateChange
+				}
+			});
+			player5 = new YT.Player('player5', {
+				height: '315',
+				width: '560',
+				videoId: '1V5_5g5g4I4',
+				events: {
+					'onStateChange': onPlayerStateChange
+				}
+			});
+			player6 = new YT.Player('player6', {
+				height: '315',
+				width: '560',
+				videoId: '1V5_5g5g4I4',
+				events: {
+					'onStateChange': onPlayerStateChange
+				}
+			});
+		}
+
+		function onPlayerStateChange(event) {
+			switch(event.data) {
+				case 0:
+					console.log("0 - 정지??");
+					for (var i = 0; i < videoPoster.length; i++) {
+						videoPoster[i].classList.remove('is-selected');
+					}
+					break;
+				case 1:
+					console.log("1 - 재생중");
+					event.target.mute();
+					setTimeout(function(){
+						event.target.unMute();
+					}, 500);
+					break;
+				case 2:
+					console.log("2 - 일시정지");
+
+					break;
+				default:
+					break;
+			}
+		}
+
+
+		for(var p = 0; p < videoPoster.length; p++) {
+			videoPoster[p].addEventListener('click', function() {
+				this.classList.add('is-selected');
+			});
+
+		}
+
+
+	</script>
+
+
+
+</body>
+</html>
