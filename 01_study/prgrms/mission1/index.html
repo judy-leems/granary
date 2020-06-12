@@ -1,0 +1,76 @@
+<html>
+
+<head>
+  <title>Mission 1</title>
+  <meta charset="utf-8" />
+</head>
+
+<body>
+  <div id="todo-list1"></div>
+  <div id="todo-list2"></div>
+  <script>
+  
+    var data1 = [
+      {
+        text: 'JS 스터디하기',
+        isCompleted: true
+      },
+      {
+        text: '토이 프로젝트 하기',
+        isCompleted: true
+      }
+    ]
+
+    var data2 = [
+      {
+        text: 'JS 스터디하기 2 ',
+        isCompleted: true
+      },
+      {
+        text: '토이 프로젝트 하기 2',
+        isCompleted: true
+
+      }
+    ]
+
+    function TodoList(data, $target) {
+      this.data = data
+      this.$target = $target
+
+      this.setData 
+
+      this.createTodoListHTMLString = () => {
+        return this.data.map(({ text, isCompleted }) => 
+              isCompleted ? 
+              `<li><s>${text}</s></li>` : `<li>${text}</li>`).join('')
+      }
+
+      this.render = () => {
+        this.$target.innerHTML = 
+        `<ul>
+          ${this.data.map(({ text }) => `<li>${text}</li>`).join('')}
+        </ul>
+        `
+      }
+      this.render();
+      this.setState = 
+    }
+
+    const todoList1 = new TodoList(data1, document.querySelector('#todo-list1'));
+    const todoList2 = new TodoList(data2, document.querySelector('#todo-list2'));
+
+
+
+    setTimeout(() => {
+      todoList1.setState([
+        {
+          text: '베이스 연습하기'
+        }
+      ])
+    }, 5000)
+
+
+  </script>
+</body>
+
+</html>
