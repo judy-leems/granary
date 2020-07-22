@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>PARALLAX</title>
+	<style type="text/css">
+		* {
+			padding: 0;
+			margin: 0;
+		}
+		.box {
+			position: relative;
+			width: 100%;
+			height: 100vh;
+		}
+		.box1 {
+			background: #6f42c1;
+		}
+		.box2 {
+			background: #005cbf;
+		}
+		.text {
+			width: 100%;
+			height: 100%;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+
+		}
+		.link {
+			display: block;
+			color: #fff;
+			font-size: 100px;
+		}
+
+	</style>
+</head>
+<body>
+
+
+	<section class="box box1">
+		<div class="text">
+			<a href="#" class="link section1">Bring me down</a>
+		</div>
+	</section>
+	<section class="box box2">
+		<div class="text">
+			<a href="#" class="link section2">Hi</a>
+		</div>
+	</section>
+
+
+	<script type="text/javascript">
+	(function(){
+
+		function smoothScroll(element, duration){
+			var element = document.querySelector(element);
+			var targetPosition = element.getBoundingClientRect().top;
+			var startPosition = window.pageYOffset;
+			var distance = targetPosition - startPosition;
+			var startTime = null;
+			
+			function animation(currentTime) {
+				if(startTime === null) {
+					startTime = currentTime;
+				}
+				var timeElapsed = currentTime - startTime;
+				var run = ease(timeElapsed, startPosition, distance, duration);
+				window.scrollTo(0, run);
+				if(timeElapsed < duration) {
+					requestAnimationFrame(animation);
+				}
+				console.log('timeElapsed :' + timeElapsed + 'duration :' + duration )
+			}	
+
+			function ease (t, b, c, d) {
+				t /= d;
+				return c*t*t*t + b;
+			};
+
+			requestAnimationFrame(animation)
+
+		}
+
+		var section1 = document.querySelector('.section1');
+		section1.addEventListener('click', function(){
+			smoothScroll('.section2', 3000);
+		})
+
+	})()
+
+
+	</script>
+</body>
+</html>
