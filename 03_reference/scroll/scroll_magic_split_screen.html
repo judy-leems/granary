@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>SCROLL</title>
+	<style type="text/css">
+		* {
+			padding: 0;
+			margin: 0;
+		}
+		header {
+			height: 100vh;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			background: linear-gradient(to bottom, rgba(0, 0, 0, .3), rgba(0, 0, 0, .3));
+			background-size: cover;
+			color: #fff;
+		}
+		.about {
+			height: 300vh;
+			display: flex;
+		}
+		.about-title {
+			width: 50%;
+			height: 100vh;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			font-size: 30px;
+			margin: 0 !important;
+		}
+		.about-pages {
+			width: 50%;
+		}
+		.about-pages div {
+			height: 100vh;
+			display: flex;
+			flex-direction: column;
+			justify-content: space-around;
+			align-items: center;
+		}
+		.about-pages div:nth-child(1) {
+			background-color: rgb(56,134,89);
+		}
+		.about-pages div:nth-child(2) {
+			background-color: rgb(129,42,110);
+		}
+		.about-pages div:nth-child(3) {
+			background-color: rgb(31,88,107);
+		}
+		.about-pages div > p {
+			width: 80%;
+			font-size: 18px;
+		}
+		footer {
+			height: 100vh;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			background-color: bisque;
+		}
+	</style>
+</head>
+<body>
+	<div class="viewport">
+		<header>
+			<h1>welcome to parallax</h1>
+		</header>
+
+		<section class="about">
+			<div class="about-title">
+				<h2>About Me</h2>
+			</div>
+			<div class="about-pages">
+				<div>
+					<h2>Project 1</h2>
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius hic eos iste nemo maxime numquam sunt laudantium fuga odio, nostrum, debitis culpa blanditiis vero quaerat dicta facere nam nulla. Mollitia?</p>
+				</div>
+				<div>
+					<h2>Project 2</h2>
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius hic eos iste nemo maxime numquam sunt laudantium fuga odio, nostrum, debitis culpa blanditiis vero quaerat dicta facere nam nulla. Mollitia?</p>
+				</div>
+				<div>
+					<h2>Project 3</h2>
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius hic eos iste nemo maxime numquam sunt laudantium fuga odio, nostrum, debitis culpa blanditiis vero quaerat dicta facere nam nulla. Mollitia?</p>
+				</div>
+			</div>
+		</section>
+		<footer>
+			<h2>Pretty cool right?</h2>
+		</footer>
+	</div>
+	<!-- viewport//end -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/debug.addIndicators.min.js"></script>
+	<script type="text/javascript">
+		(function(){
+			function splitScroll() {
+				const controller = new ScrollMagic.Controller();
+				new ScrollMagic.Scene({
+					duration: '200%',
+					triggerElement: '.about-title',
+					triggerHook: 0
+				})
+				.setPin('.about-title')
+				.addIndicators() 
+				.addTo(controller)
+			}
+
+
+			splitScroll();
+
+		})();
+	</script>
+</body>
+</html>
